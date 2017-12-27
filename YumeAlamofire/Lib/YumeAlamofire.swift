@@ -9,15 +9,13 @@ import Foundation
 import JSONDecodeKit
 import Alamofire
 
-struct YumeAlamofire {
-    
-}
+public struct YumeAlamofire {}
 
 // MARK: Debug Info
 extension YumeAlamofire {
-    typealias DebugInfoFunction = (_ data:Data?) -> Swift.Void
-    static func emptyDebugInfo(data:Data?) {}
-    static func basicDebugInfo(data:Data?) {
+    public typealias DebugInfoFunction = (_ data:Data?) -> Swift.Void
+    public static func emptyDebugInfo(data:Data?) {}
+    public static func basicDebugInfo(data:Data?) {
         guard let data = data else { return }
         print("The error response : \(String.init(data: data, encoding: .utf8) ?? "")")
     }
@@ -35,7 +33,7 @@ extension YumeAlamofire {
 }
 
 extension YumeAlamofire {
-    static func parseErrorHandle<OutputType:JSONDecodable>(type:OutputType.Type, url:URL?, error:Error) {
+    private static func parseErrorHandle<OutputType:JSONDecodable>(type:OutputType.Type, url:URL?, error:Error) {
         let parseError = [
             "API Data Parse Error.",
             "Type : \(OutputType.self)",
@@ -48,7 +46,6 @@ extension YumeAlamofire {
 }
 
 extension YumeAlamofire {
-    
     private static func guardData(res:DefaultDataResponse) -> (response:HTTPURLResponse,data:Data)? {
         guard let response = res.response,let data = res.data else {
             print("API (\(res.request?.url?.absoluteString ?? "")): No Response.")
@@ -126,4 +123,3 @@ extension YumeAlamofire {
         )
     }
 }
-

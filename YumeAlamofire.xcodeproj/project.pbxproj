@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A8F40FE81FF3809B000F01E5 /* YumeAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8F40FED1FF380C3000F01E5 /* Entryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FEC1FF380C3000F01E5 /* Entryable.swift */; };
-		A8F40FEF1FF38109000F01E5 /* YumeAlamofire+entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FEE1FF38109000F01E5 /* YumeAlamofire+entry.swift */; };
 		A8F40FF21FF38131000F01E5 /* YumeAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FF11FF38131000F01E5 /* YumeAlamofire.swift */; };
 		A8F40FFA1FF38558000F01E5 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; };
 		A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
@@ -20,7 +19,6 @@
 		A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YumeAlamofire.h; sourceTree = "<group>"; };
 		A8F40FE71FF3809B000F01E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8F40FEC1FF380C3000F01E5 /* Entryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entryable.swift; sourceTree = "<group>"; };
-		A8F40FEE1FF38109000F01E5 /* YumeAlamofire+entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YumeAlamofire+entry.swift"; sourceTree = "<group>"; };
 		A8F40FF11FF38131000F01E5 /* YumeAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumeAlamofire.swift; sourceTree = "<group>"; };
 		A8F40FF31FF38179000F01E5 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONDecodeKit.framework; path = Carthage/Build/iOS/JSONDecodeKit.framework; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				A8F40FEC1FF380C3000F01E5 /* Entryable.swift */,
-				A8F40FEE1FF38109000F01E5 /* YumeAlamofire+entry.swift */,
 				A8F40FF11FF38131000F01E5 /* YumeAlamofire.swift */,
 			);
 			path = Lib;
@@ -191,7 +188,6 @@
 			files = (
 				A8F40FED1FF380C3000F01E5 /* Entryable.swift in Sources */,
 				A8F40FF21FF38131000F01E5 /* YumeAlamofire.swift in Sources */,
-				A8F40FEF1FF38109000F01E5 /* YumeAlamofire+entry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
