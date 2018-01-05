@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import JSONDecodeKit
 
-public protocol Entryable {
+public protocol SimpleEntryable {
     
     typealias Parameters = [String : Any]
     typealias Headers = [String : String]
@@ -34,12 +34,9 @@ public protocol Entryable {
     var isJSONRequest: Bool { get }
     
     var request:Alamofire.DataRequest { get }
-    
-    associatedtype ResponseType : JSONDecodable
-    func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)?, successHandler: ((ResponseType) -> Void)?)
 }
 
-extension Entryable {
+extension SimpleEntryable {
     public var url: String {
         return base + path
     }
@@ -69,8 +66,15 @@ extension Entryable {
         
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return Alamofire.request(urlRequest)
-    }
-    
+    }    
+}
+
+public protocol Entryable:SimpleEntryable {
+    associatedtype ResponseType : JSONDecodable
+    func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)?, successHandler: ((ResponseType) -> Void)?)
+}
+
+extension Entryable {
     public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)?, successHandler: ((ResponseType) -> Void)?) {
         YumeAlamofire.requestSingle(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }
