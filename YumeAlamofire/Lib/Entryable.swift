@@ -40,10 +40,11 @@ public protocol Entryable {
 }
 
 extension Entryable {
-    var url: String {
+    public var url: String {
         return base + path
     }
-    var request:Alamofire.DataRequest {
+    
+    public var request:Alamofire.DataRequest {
         if isJSONRequest {
             return jsonRequest
         } else {
@@ -51,11 +52,11 @@ extension Entryable {
         }
     }
     
-    var normalRequest: Alamofire.DataRequest {
+    public var normalRequest: Alamofire.DataRequest {
         return Alamofire.request(url, method: method, parameters: parameters, headers: headers)
     }
     
-    var jsonRequest: Alamofire.DataRequest {
+    public var jsonRequest: Alamofire.DataRequest {
         let url = URL(string: self.url)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
@@ -70,8 +71,7 @@ extension Entryable {
         return Alamofire.request(urlRequest)
     }
     
-    func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)?, successHandler: ((ResponseType) -> Void)?) {
+    public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)?, successHandler: ((ResponseType) -> Void)?) {
         YumeAlamofire.requestSingle(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }
 }
-
