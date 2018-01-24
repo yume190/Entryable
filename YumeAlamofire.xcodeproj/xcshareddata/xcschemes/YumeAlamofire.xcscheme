@@ -29,7 +29,26 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A8051EC3200718510010EEE7"
+               BuildableName = "YumeAlamofireTests.xctest"
+               BlueprintName = "YumeAlamofireTests"
+               ReferencedContainer = "container:YumeAlamofire.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A8F40FE31FF3809B000F01E5"
+            BuildableName = "YumeAlamofire.framework"
+            BlueprintName = "YumeAlamofire"
+            ReferencedContainer = "container:YumeAlamofire.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

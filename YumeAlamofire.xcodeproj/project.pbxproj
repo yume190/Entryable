@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8051EC7200718520010EEE7 /* YumeAlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051EC6200718520010EEE7 /* YumeAlamofireTests.swift */; };
+		A8051EC9200718520010EEE7 /* YumeAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */; };
+		A8051ED0200718650010EEE7 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051ECF200718650010EEE7 /* Sample.swift */; };
+		A8051ED22007190B0010EEE7 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8051ED32007190B0010EEE7 /* JSONDecodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
+		A8051ED52007194E0010EEE7 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; };
+		A8051ED72007334E0010EEE7 /* Latch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051ED62007334E0010EEE7 /* Latch.swift */; };
 		A8C05F971FFF5AAB008C1A97 /* JSONArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C05F961FFF5AAB008C1A97 /* JSONArray.swift */; };
 		A8F40FE81FF3809B000F01E5 /* YumeAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8F40FED1FF380C3000F01E5 /* Entryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FEC1FF380C3000F01E5 /* Entryable.swift */; };
@@ -15,7 +23,36 @@
 		A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A8051ECA200718520010EEE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8F40FC21FF38068000F01E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8F40FE31FF3809B000F01E5;
+			remoteInfo = YumeAlamofire;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A8051ED1200718FD0010EEE7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A8051ED22007190B0010EEE7 /* Alamofire.framework in CopyFiles */,
+				A8051ED32007190B0010EEE7 /* JSONDecodeKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A8051EC4200718510010EEE7 /* YumeAlamofireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YumeAlamofireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8051EC6200718520010EEE7 /* YumeAlamofireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumeAlamofireTests.swift; sourceTree = "<group>"; };
+		A8051EC8200718520010EEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8051ECF200718650010EEE7 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		A8051ED62007334E0010EEE7 /* Latch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latch.swift; sourceTree = "<group>"; };
 		A8C05F961FFF5AAB008C1A97 /* JSONArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONArray.swift; sourceTree = "<group>"; };
 		A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YumeAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YumeAlamofire.h; sourceTree = "<group>"; };
@@ -28,6 +65,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A8051EC1200718510010EEE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8051EC9200718520010EEE7 /* YumeAlamofire.framework in Frameworks */,
+				A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */,
+				A8051ED52007194E0010EEE7 /* JSONDecodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A8F40FE01FF3809B000F01E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,10 +87,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8051EC5200718520010EEE7 /* YumeAlamofireTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8051EC6200718520010EEE7 /* YumeAlamofireTests.swift */,
+				A8051EC8200718520010EEE7 /* Info.plist */,
+				A8051ECF200718650010EEE7 /* Sample.swift */,
+				A8051ED62007334E0010EEE7 /* Latch.swift */,
+			);
+			path = YumeAlamofireTests;
+			sourceTree = "<group>";
+		};
 		A8F40FC11FF38068000F01E5 = {
 			isa = PBXGroup;
 			children = (
 				A8F40FE51FF3809B000F01E5 /* YumeAlamofire */,
+				A8051EC5200718520010EEE7 /* YumeAlamofireTests */,
 				A8F40FCB1FF38068000F01E5 /* Products */,
 				A8F40FF71FF38558000F01E5 /* Frameworks */,
 			);
@@ -53,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */,
+				A8051EC4200718510010EEE7 /* YumeAlamofireTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +161,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A8051EC3200718510010EEE7 /* YumeAlamofireTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8051ECE200718520010EEE7 /* Build configuration list for PBXNativeTarget "YumeAlamofireTests" */;
+			buildPhases = (
+				A8051EC0200718510010EEE7 /* Sources */,
+				A8051EC1200718510010EEE7 /* Frameworks */,
+				A8051EC2200718510010EEE7 /* Resources */,
+				A8051ED1200718FD0010EEE7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8051ECB200718520010EEE7 /* PBXTargetDependency */,
+			);
+			name = YumeAlamofireTests;
+			productName = YumeAlamofireTests;
+			productReference = A8051EC4200718510010EEE7 /* YumeAlamofireTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A8F40FE31FF3809B000F01E5 /* YumeAlamofire */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8F40FE91FF3809B000F01E5 /* Build configuration list for PBXNativeTarget "YumeAlamofire" */;
@@ -130,6 +209,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Yume;
 				TargetAttributes = {
+					A8051EC3200718510010EEE7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					A8F40FE31FF3809B000F01E5 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -151,11 +234,19 @@
 			projectRoot = "";
 			targets = (
 				A8F40FE31FF3809B000F01E5 /* YumeAlamofire */,
+				A8051EC3200718510010EEE7 /* YumeAlamofireTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A8051EC2200718510010EEE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A8F40FE21FF3809B000F01E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -180,11 +271,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "#/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A8051EC0200718510010EEE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8051EC7200718520010EEE7 /* YumeAlamofireTests.swift in Sources */,
+				A8051ED0200718650010EEE7 /* Sample.swift in Sources */,
+				A8051ED72007334E0010EEE7 /* Latch.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A8F40FDF1FF3809B000F01E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,7 +298,49 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A8051ECB200718520010EEE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A8F40FE31FF3809B000F01E5 /* YumeAlamofire */;
+			targetProxy = A8051ECA200718520010EEE7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A8051ECC200718520010EEE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = YumeAlamofireTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.YumeAlamofireTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A8051ECD200718520010EEE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = YumeAlamofireTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.YumeAlamofireTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A8F40FDA1FF38068000F01E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -367,6 +510,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A8051ECE200718520010EEE7 /* Build configuration list for PBXNativeTarget "YumeAlamofireTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8051ECC200718520010EEE7 /* Debug */,
+				A8051ECD200718520010EEE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A8F40FC51FF38068000F01E5 /* Build configuration list for PBXProject "YumeAlamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

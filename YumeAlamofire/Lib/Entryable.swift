@@ -75,7 +75,7 @@ public protocol Entryable:SimpleEntryable {
 }
 
 extension Entryable {
-    public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)?, successHandler: ((ResponseType) -> Void)?) {
+    public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: ((ResponseType) -> Void)?) {
         YumeAlamofire.requestSingle(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }
 }
