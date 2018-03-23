@@ -15,6 +15,7 @@
 		A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
 		A8051ED52007194E0010EEE7 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; };
 		A8051ED72007334E0010EEE7 /* Latch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051ED62007334E0010EEE7 /* Latch.swift */; };
+		A85E37602057BB480009766E /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FF31FF38179000F01E5 /* Sample.swift */; };
 		A8C05F971FFF5AAB008C1A97 /* JSONArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C05F961FFF5AAB008C1A97 /* JSONArray.swift */; };
 		A8F40FE81FF3809B000F01E5 /* YumeAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8F40FED1FF380C3000F01E5 /* Entryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FEC1FF380C3000F01E5 /* Entryable.swift */; };
@@ -291,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8F40FED1FF380C3000F01E5 /* Entryable.swift in Sources */,
+				A85E37602057BB480009766E /* Sample.swift in Sources */,
 				A8C05F971FFF5AAB008C1A97 /* JSONArray.swift in Sources */,
 				A8F40FF21FF38131000F01E5 /* YumeAlamofire.swift in Sources */,
 			);
