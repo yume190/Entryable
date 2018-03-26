@@ -75,7 +75,7 @@ extension YumeAlamofire {
         }
     }
     
-    public static func requestSingle<Entry: Entryable>(
+    public static func requestSingle<Entry: SingleEntryable>(
         entry:Entry,
         responseInfo:@escaping DebugInfoFunction = YumeAlamofire.basicDebugInfo,
         failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil,
@@ -109,7 +109,7 @@ extension YumeAlamofire {
         }
     }
     
-    public static func requestArray<Entry: Entryable>(
+    public static func requestArray<Entry: ArrayEntryable>(
         entry:Entry,
         responseInfo:@escaping DebugInfoFunction = basicDebugInfo,
         failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil,

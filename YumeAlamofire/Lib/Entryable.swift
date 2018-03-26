@@ -24,6 +24,9 @@ public protocol SimpleEntryable {
     var url: String { get }
     
     /// The HTTP method used in the request.
+    var sessionManager: Alamofire.SessionManager { get }
+    
+    /// The HTTP method used in the request.
     var method: Alamofire.HTTPMethod { get }
     
     /// The headers to be used in the request.
@@ -50,7 +53,7 @@ extension SimpleEntryable {
     }
     
     public var normalRequest: Alamofire.DataRequest {
-        return Alamofire.request(url, method: method, parameters: parameters, headers: headers)
+        return sessionManager.request(url, method: method, parameters: parameters, headers: headers)
     }
     
     public var jsonRequest: Alamofire.DataRequest {
@@ -69,13 +72,7 @@ extension SimpleEntryable {
     }    
 }
 
-public protocol Entryable:SimpleEntryable {
-    associatedtype ResponseType : JSONDecodable
-    func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)?, successHandler: ((ResponseType) -> Void)?)
-}
 
-extension Entryable {
-    public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: ((ResponseType) -> Void)?) {
-        YumeAlamofire.requestSingle(entry: self, failureHandler: failureHandler, successHandler: successHandler)
-    }
-}
+
+
+

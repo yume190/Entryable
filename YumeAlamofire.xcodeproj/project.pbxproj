@@ -16,6 +16,8 @@
 		A8051ED52007194E0010EEE7 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; };
 		A8051ED72007334E0010EEE7 /* Latch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051ED62007334E0010EEE7 /* Latch.swift */; };
 		A85E37602057BB480009766E /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FF31FF38179000F01E5 /* Sample.swift */; };
+		A864306720689BA5006FF641 /* Entryable+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864306620689BA5006FF641 /* Entryable+Single.swift */; };
+		A864306920689BAF006FF641 /* Entryable+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864306820689BAF006FF641 /* Entryable+Array.swift */; };
 		A8C05F971FFF5AAB008C1A97 /* JSONArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C05F961FFF5AAB008C1A97 /* JSONArray.swift */; };
 		A8F40FE81FF3809B000F01E5 /* YumeAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8F40FED1FF380C3000F01E5 /* Entryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FEC1FF380C3000F01E5 /* Entryable.swift */; };
@@ -54,6 +56,8 @@
 		A8051EC8200718520010EEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8051ECF200718650010EEE7 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		A8051ED62007334E0010EEE7 /* Latch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latch.swift; sourceTree = "<group>"; };
+		A864306620689BA5006FF641 /* Entryable+Single.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entryable+Single.swift"; sourceTree = "<group>"; };
+		A864306820689BAF006FF641 /* Entryable+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entryable+Array.swift"; sourceTree = "<group>"; };
 		A8C05F961FFF5AAB008C1A97 /* JSONArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONArray.swift; sourceTree = "<group>"; };
 		A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YumeAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YumeAlamofire.h; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				A8F40FEC1FF380C3000F01E5 /* Entryable.swift */,
+				A864306620689BA5006FF641 /* Entryable+Single.swift */,
+				A864306820689BAF006FF641 /* Entryable+Array.swift */,
 				A8F40FF11FF38131000F01E5 /* YumeAlamofire.swift */,
 				A8C05F961FFF5AAB008C1A97 /* JSONArray.swift */,
 			);
@@ -291,8 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A864306920689BAF006FF641 /* Entryable+Array.swift in Sources */,
 				A8F40FED1FF380C3000F01E5 /* Entryable.swift in Sources */,
 				A85E37602057BB480009766E /* Sample.swift in Sources */,
+				A864306720689BA5006FF641 /* Entryable+Single.swift in Sources */,
 				A8C05F971FFF5AAB008C1A97 /* JSONArray.swift in Sources */,
 				A8F40FF21FF38131000F01E5 /* YumeAlamofire.swift in Sources */,
 			);
