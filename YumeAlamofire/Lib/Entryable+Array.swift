@@ -17,6 +17,6 @@ public protocol ArrayEntryable: SimpleEntryable {
 
 extension ArrayEntryable {
     public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: (([ResponseType]) -> Void)?) {
-        YumeAlamofire.requestArray(dataRequeset: self.request, successHandler: successHandler)
+        YumeAlamofire.requestArray(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }
 }
