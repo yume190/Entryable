@@ -1,23 +1,18 @@
 //
-//  Entryable+Single.swift
+//  Entryable+Codable.swift
 //  YumeAlamofire
 //
-//  Created by Yume on 2018/3/26.
+//  Created by Yume on 2018/3/30.
 //  Copyright © 2018年 Yume. All rights reserved.
 //
 
 import Foundation
-import JSONDecodeKit
 import Alamofire
 
-extension Entryable where ResponseType: JSONDecodable {
+extension Entryable where ResponseType: Codable {
     
     func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: ((ResponseType) -> Void)?) {
         Self.request(entry: self, failureHandler: failureHandler, successHandler: successHandler)
-    }
-    
-    private static func decodeAsSingle<OutputType:JSONDecodable>(data:Data) throws -> OutputType {
-        return try OutputType.decode(json: JSON(data: data,isTraceKeypath:true))
     }
     
     public static func request(
@@ -34,9 +29,9 @@ extension Entryable where ResponseType: JSONDecodable {
         )
     }
     
-    public static func request<OutputType:JSONDecodable>(
-        dataRequeset:Alamofire.DataRequest,
-        responseInfo:@escaping YumeAlamofire.DebugInfoFunction = YumeAlamofire.basicDebugInfo,
+    public static func request<OutputType: Codable>(
+        dataRequeset: Alamofire.DataRequest,
+        responseInfo: @escaping YumeAlamofire.DebugInfoFunction = YumeAlamofire.basicDebugInfo,
         failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil,
         successHandler: ((OutputType) -> Void)?) {
         dataRequeset.response {
@@ -46,7 +41,9 @@ extension Entryable where ResponseType: JSONDecodable {
                 return
             }
             do {
-                try successHandler?(Self.decodeAsSingle(data: target.data))
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(OutputType.self, from: target.data)
+                successHandler?(result)
             } catch {
                 failureHandler?(res)
                 YumeAlamofire.parseErrorHandle(type: OutputType.self, url: res.request?.url, error: error)

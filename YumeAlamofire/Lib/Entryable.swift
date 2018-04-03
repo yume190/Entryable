@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 import JSONDecodeKit
 
-public protocol SimpleEntryable {
+public protocol Entryable {
+    associatedtype ResponseType
     
     typealias Parameters = [String : Any]
     typealias Headers = [String : String]
@@ -36,15 +37,15 @@ public protocol SimpleEntryable {
     
     var isJSONRequest: Bool { get }
     
-    var request:Alamofire.DataRequest { get }
+    var dataRequest: Alamofire.DataRequest { get }
 }
 
-extension SimpleEntryable {
+extension Entryable {
     public var url: String {
         return base + path
     }
     
-    public var request:Alamofire.DataRequest {
+    public var dataRequest:Alamofire.DataRequest {
         if isJSONRequest {
             return jsonRequest
         } else {
@@ -68,11 +69,6 @@ extension SimpleEntryable {
         }
         
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return Alamofire.request(urlRequest)
+        return sessionManager.request(urlRequest)
     }    
 }
-
-
-
-
-
