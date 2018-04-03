@@ -1,19 +1,16 @@
 //
-//  Entry+BaseDatas.swift
-//  FlowerBus
+//  Sample+Codable.swift
+//  YumeAlamofire
 //
-//  Created by Yume on 2017/12/12.
-//  Copyright © 2017年 Yume. All rights reserved.
+//  Created by Yume on 2018/3/30.
+//  Copyright © 2018年 Yume. All rights reserved.
 //
 
 import Foundation
 import Alamofire
-import JSONDecodeKit
-
-struct Entry {}
 
 extension Entry {
-    struct BaseDatas: SingleEntryable {
+    struct BaseDatas2: Entryable {
         typealias ResponseType = Response
         
         let key: String
@@ -28,15 +25,9 @@ extension Entry {
     }
 }
 
-extension Entry.BaseDatas {
-    struct Response {
+extension Entry.BaseDatas2 {
+    struct Response: Codable {
         let code: Int
         let message: String
-    }
-}
-
-extension Entry.BaseDatas.Response: JSONDecodable {
-    static func decode(json: JSON) throws -> Entry.BaseDatas.Response {
-        return try Entry.BaseDatas.Response(code: json <| "code", message: json <| "message")
     }
 }
