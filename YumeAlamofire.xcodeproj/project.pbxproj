@@ -15,7 +15,7 @@
 		A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
 		A8051ED52007194E0010EEE7 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; };
 		A8051ED72007334E0010EEE7 /* Latch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051ED62007334E0010EEE7 /* Latch.swift */; };
-		A85E37602057BB480009766E /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F40FF31FF38179000F01E5 /* Sample.swift */; };
+		A8622036206DEDE200BC55F6 /* Entryable+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8622035206DEDE200BC55F6 /* Entryable+Codable.swift */; };
 		A864306720689BA5006FF641 /* Entryable+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864306620689BA5006FF641 /* Entryable+Single.swift */; };
 		A864306920689BAF006FF641 /* Entryable+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864306820689BAF006FF641 /* Entryable+Array.swift */; };
 		A8C05F971FFF5AAB008C1A97 /* JSONArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C05F961FFF5AAB008C1A97 /* JSONArray.swift */; };
@@ -56,6 +56,9 @@
 		A8051EC8200718520010EEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8051ECF200718650010EEE7 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		A8051ED62007334E0010EEE7 /* Latch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latch.swift; sourceTree = "<group>"; };
+		A8622035206DEDE200BC55F6 /* Entryable+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entryable+Codable.swift"; sourceTree = "<group>"; };
+		A862203A206E2DBC00BC55F6 /* Sample+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Array.swift"; sourceTree = "<group>"; };
+		A862203C206E2DC700BC55F6 /* Sample+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Codable.swift"; sourceTree = "<group>"; };
 		A864306620689BA5006FF641 /* Entryable+Single.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entryable+Single.swift"; sourceTree = "<group>"; };
 		A864306820689BAF006FF641 /* Entryable+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entryable+Array.swift"; sourceTree = "<group>"; };
 		A8C05F961FFF5AAB008C1A97 /* JSONArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONArray.swift; sourceTree = "<group>"; };
@@ -64,7 +67,7 @@
 		A8F40FE71FF3809B000F01E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8F40FEC1FF380C3000F01E5 /* Entryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entryable.swift; sourceTree = "<group>"; };
 		A8F40FF11FF38131000F01E5 /* YumeAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumeAlamofire.swift; sourceTree = "<group>"; };
-		A8F40FF31FF38179000F01E5 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		A8F40FF31FF38179000F01E5 /* Sample+Single.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Single.swift"; sourceTree = "<group>"; };
 		A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONDecodeKit.framework; path = Carthage/Build/iOS/JSONDecodeKit.framework; sourceTree = "<group>"; };
 		A8F40FF91FF38558000F01E5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,7 +131,9 @@
 				A8F40FF01FF38116000F01E5 /* Lib */,
 				A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */,
 				A8F40FE71FF3809B000F01E5 /* Info.plist */,
-				A8F40FF31FF38179000F01E5 /* Sample.swift */,
+				A8F40FF31FF38179000F01E5 /* Sample+Single.swift */,
+				A862203A206E2DBC00BC55F6 /* Sample+Array.swift */,
+				A862203C206E2DC700BC55F6 /* Sample+Codable.swift */,
 			);
 			path = YumeAlamofire;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				A8F40FEC1FF380C3000F01E5 /* Entryable.swift */,
+				A8622035206DEDE200BC55F6 /* Entryable+Codable.swift */,
 				A864306620689BA5006FF641 /* Entryable+Single.swift */,
 				A864306820689BAF006FF641 /* Entryable+Array.swift */,
 				A8F40FF11FF38131000F01E5 /* YumeAlamofire.swift */,
@@ -213,7 +219,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Yume;
 				TargetAttributes = {
 					A8051EC3200718510010EEE7 = {
@@ -299,7 +305,7 @@
 			files = (
 				A864306920689BAF006FF641 /* Entryable+Array.swift in Sources */,
 				A8F40FED1FF380C3000F01E5 /* Entryable.swift in Sources */,
-				A85E37602057BB480009766E /* Sample.swift in Sources */,
+				A8622036206DEDE200BC55F6 /* Entryable+Codable.swift in Sources */,
 				A864306720689BA5006FF641 /* Entryable+Single.swift in Sources */,
 				A8C05F971FFF5AAB008C1A97 /* JSONArray.swift in Sources */,
 				A8F40FF21FF38131000F01E5 /* YumeAlamofire.swift in Sources */,
@@ -365,6 +371,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -372,6 +379,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -422,6 +430,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -429,6 +438,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
