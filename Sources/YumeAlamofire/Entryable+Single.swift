@@ -12,7 +12,7 @@ import Alamofire
 
 extension Entryable where ResponseType: JSONDecodable {
     
-    func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: ((ResponseType) -> Void)?) {
+    public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: ((ResponseType) -> Void)?) {
         Self.request(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }
     

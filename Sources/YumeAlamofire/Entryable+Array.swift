@@ -11,7 +11,7 @@ import JSONDecodeKit
 import Alamofire
 
 extension Entryable where ResponseType: Sequence, ResponseType.Element: JSONDecodable {
-    func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: (([ResponseType.Element]) -> Void)?) {
+    public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: (([ResponseType.Element]) -> Void)?) {
 
         Self.request(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }
