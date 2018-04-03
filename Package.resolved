@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "10323991876208d196c6d1bf91beeb2ec4383b27",
+          "version": "4.7.1"
+        }
+      },
+      {
+        "package": "JSONDecodeKit",
+        "repositoryURL": "https://github.com/yume190/JSONDecodeKit.git",
+        "state": {
+          "branch": null,
+          "revision": "36ef8643438b8f75e03039e955800cc98dc53c3e",
+          "version": "4.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
