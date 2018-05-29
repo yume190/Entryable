@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
   s.swift_version = '4.1'
   s.static_framework = true
 
-  s.dependency "Alamofire", "~> 4.4.0"
-  s.dependency "JSONDecodeKit", "~> 4.1.0"
+  s.dependency "Alamofire", "~> 4.4"
+  s.dependency "JSONDecodeKit", "~> 4.1"
 end
