@@ -10,14 +10,15 @@ import Foundation
 import Alamofire
 import JSONDecodeKit
 
+struct Entry {}
 extension Entry {
     struct BaseDatas3: Entryable {
         typealias ResponseType = [Response]
         
         let key: String
         
-        let base: String = ""
-        var path: String { return "/basedatas/\(key)" }
+        let base: String = "http://localhost:3000"
+        var path: String { return "/yume)" }
         let sessionManager: Alamofire.SessionManager = Alamofire.SessionManager.default
         let method: Alamofire.HTTPMethod = .get
         let parameters: Parameters = [:]
@@ -38,3 +39,7 @@ extension Entry.BaseDatas3.Response: JSONDecodable {
         return try Entry.BaseDatas3.Response(code: json <| "code", message: json <| "message")
     }
 }
+
+//func abc() {
+//    Entry.BaseDatas3(key: "").req(successHandler: <#T##(([Entry.BaseDatas3.Response]) -> Void)?##(([Entry.BaseDatas3.Response]) -> Void)?##([Entry.BaseDatas3.Response]) -> Void#>)
+//}
