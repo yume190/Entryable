@@ -11,17 +11,15 @@
 		A8051EC9200718520010EEE7 /* YumeAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */; };
 		A8051ED0200718650010EEE7 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051ECF200718650010EEE7 /* Sample.swift */; };
 		A8051ED22007190B0010EEE7 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A8051ED32007190B0010EEE7 /* JSONDecodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
-		A8051ED52007194E0010EEE7 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; };
 		A8051ED72007334E0010EEE7 /* Latch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051ED62007334E0010EEE7 /* Latch.swift */; };
 		A8281FAC20737CA800725A91 /* Entryable+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA620737CA800725A91 /* Entryable+Codable.swift */; };
 		A8281FAD20737CA800725A91 /* Entryable+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA720737CA800725A91 /* Entryable+Array.swift */; };
 		A8281FAE20737CA800725A91 /* Entryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA820737CA800725A91 /* Entryable.swift */; };
 		A8281FAF20737CA800725A91 /* Entryable+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA920737CA800725A91 /* Entryable+Single.swift */; };
 		A8281FB020737CA800725A91 /* YumeAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FAA20737CA800725A91 /* YumeAlamofire.swift */; };
+		A83E4BBD20C7DC2600F27CE5 /* Entryable+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E4BBC20C7DC2600F27CE5 /* Entryable+Await.swift */; };
 		A8F40FE81FF3809B000F01E5 /* YumeAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A8F40FFA1FF38558000F01E5 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */; };
 		A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
 		A8F4886B207B79BB00E1DA7E /* Sample+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A862203A206E2DBC00BC55F6 /* Sample+Array.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +42,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A8051ED22007190B0010EEE7 /* Alamofire.framework in CopyFiles */,
-				A8051ED32007190B0010EEE7 /* JSONDecodeKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,13 +58,13 @@
 		A8281FA820737CA800725A91 /* Entryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entryable.swift; path = Sources/YumeAlamofire/Entryable.swift; sourceTree = SOURCE_ROOT; };
 		A8281FA920737CA800725A91 /* Entryable+Single.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entryable+Single.swift"; path = "Sources/YumeAlamofire/Entryable+Single.swift"; sourceTree = SOURCE_ROOT; };
 		A8281FAA20737CA800725A91 /* YumeAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YumeAlamofire.swift; path = Sources/YumeAlamofire/YumeAlamofire.swift; sourceTree = SOURCE_ROOT; };
+		A83E4BBC20C7DC2600F27CE5 /* Entryable+Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entryable+Await.swift"; path = "Sources/YumeAlamofire/Entryable+Await.swift"; sourceTree = SOURCE_ROOT; };
 		A862203A206E2DBC00BC55F6 /* Sample+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Array.swift"; sourceTree = "<group>"; };
 		A862203C206E2DC700BC55F6 /* Sample+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Codable.swift"; sourceTree = "<group>"; };
 		A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YumeAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YumeAlamofire.h; sourceTree = "<group>"; };
 		A8F40FE71FF3809B000F01E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8F40FF31FF38179000F01E5 /* Sample+Single.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Single.swift"; sourceTree = "<group>"; };
-		A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONDecodeKit.framework; path = Carthage/Build/iOS/JSONDecodeKit.framework; sourceTree = "<group>"; };
 		A8F40FF91FF38558000F01E5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +75,6 @@
 			files = (
 				A8051EC9200718520010EEE7 /* YumeAlamofire.framework in Frameworks */,
 				A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */,
-				A8051ED52007194E0010EEE7 /* JSONDecodeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8F40FFA1FF38558000F01E5 /* JSONDecodeKit.framework in Frameworks */,
 				A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				A8281FA820737CA800725A91 /* Entryable.swift */,
+				A83E4BBC20C7DC2600F27CE5 /* Entryable+Await.swift */,
 				A8281FA720737CA800725A91 /* Entryable+Array.swift */,
 				A8281FA620737CA800725A91 /* Entryable+Codable.swift */,
 				A8281FA920737CA800725A91 /* Entryable+Single.swift */,
@@ -153,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				A8F40FF91FF38558000F01E5 /* Alamofire.framework */,
-				A8F40FF81FF38558000F01E5 /* JSONDecodeKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -305,6 +300,7 @@
 				A8F4886B207B79BB00E1DA7E /* Sample+Array.swift in Sources */,
 				A8281FAD20737CA800725A91 /* Entryable+Array.swift in Sources */,
 				A8281FAF20737CA800725A91 /* Entryable+Single.swift in Sources */,
+				A83E4BBD20C7DC2600F27CE5 /* Entryable+Await.swift in Sources */,
 				A8281FB020737CA800725A91 /* YumeAlamofire.swift in Sources */,
 				A8281FAC20737CA800725A91 /* Entryable+Codable.swift in Sources */,
 			);
@@ -485,7 +481,7 @@
 				);
 				INFOPLIST_FILE = YumeAlamofire/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.YumeAlamofire;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -515,7 +511,7 @@
 				);
 				INFOPLIST_FILE = YumeAlamofire/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.YumeAlamofire;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

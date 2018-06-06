@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'YumeAlamofire'
-  s.version  = '4.1.0'
+  s.version  = '4.1.1'
   s.license  = 'MIT'
   s.summary  = "A Library combine network request and json decode in POP way"
   s.homepage = 'https://github.com/yume190/YumeAlamofire'
@@ -19,4 +19,6 @@ Pod::Spec.new do |s|
 
   s.dependency "Alamofire", "~> 4.4"
   s.dependency "JSONDecodeKit", "~> 4.1"
+  s.dependency 'AwaitKit', '~> 5.0.0'
+  s.dependency 'PromiseKit', '~> 6.2.8'
 end
