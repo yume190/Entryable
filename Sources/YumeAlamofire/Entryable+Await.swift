@@ -11,44 +11,35 @@ import PromiseKit
 import AwaitKit
 import JSONDecodeKit
 
-extension Entryable where ResponseType: Codable {
-    var promise: Promise<ResponseType> {
-        return Promise<ResponseType> { (seal) in
-            // Make an HTTP request to download the image.
+extension Entryable {
+    public var promiseData: Promise<Data> {
+        return Promise<Data> { (seal) in
             self.dataRequest.responseData { (res) in
-                let decoder = JSONDecoder()
-                
                 if let data = res.result.value {
-                    do {
-                        let result = try decoder.decode(ResponseType.self, from: data)
-                        seal.fulfill(result)
-                    } catch {
-                        seal.reject(error)
-                    }
+                    seal.fulfill(data)
                 } else {
-                    seal.reject(res.error ?? NSError(domain: "no response data", code: 0, userInfo: nil))
+                    seal.reject(
+                        res.error ??
+                        NSError(domain: "no network response data", code: 0, userInfo: nil)
+                    )
                 }
             }
         }
     }
 }
 
+extension Entryable where ResponseType: Codable {
+    public var promise: Promise<ResponseType> {
+        return self.promiseData.map { (data) throws -> ResponseType in
+            try JSONDecoder().decode(ResponseType.self, from: data)
+        }
+    }
+}
+
 extension Entryable where ResponseType: JSONDecodable {
-    var promise: Promise<ResponseType> {
-        return Promise<ResponseType> { (seal) in
-            // Make an HTTP request to download the image.
-            self.dataRequest.responseData { (res) in
-                if let data = res.result.value {
-                    do {
-                        let result = try ResponseType.decode(json: JSON(data: data))
-                        seal.fulfill(result)
-                    } catch {
-                        seal.reject(error)
-                    }
-                } else {
-                    seal.reject(res.error ?? NSError(domain: "no response data", code: 0, userInfo: nil))
-                }
-            }
+    public var promise: Promise<ResponseType> {
+        return self.promiseData.map { (data) throws -> ResponseType in
+            try ResponseType.decode(json: JSON(data: data))
         }
     }
 }
