@@ -1,42 +1,35 @@
-////
-////  YumeAlamofireTests.swift
-////  YumeAlamofireTests
-////
-////  Created by Yume on 2018/1/11.
-////  Copyright © 2018年 Yume. All rights reserved.
-////
 //
-//import XCTest
-//import Alamofire
-//import JSONDecodeKit
+//  YumeAlamofireTests.swift
+//  YumeAlamofireTests
 //
-//class YumeAlamofireTests: XCTestCase {
-//    func testExample() {
-//        let latch = CountdownLatch()
-//        latch.enter()
-//        var result: Entry.BaseDatas.Response? = nil
-//        Entry.BaseDatas().req(failureHandler: { (res:DefaultDataResponse) in
-////            if let data = res.data {
-////                let str = String.init(data: data, encoding: .utf8)!
-////                print(str)
-////            }
-//            latch.leave()
-//            fatalError()
-//        }) { (res:Entry.BaseDatas.Response) in
-//            result = res
-//            latch.leave()
-//        }
-//        
-//        
-//        let executionTimeout:DispatchTimeInterval = DispatchTimeInterval.seconds(10)
-//        if latch.wait(interval: executionTimeout){
-//            XCTAssertEqual(result?.code, 0)
-//            XCTAssertEqual(result?.message, "ok")
-//            print("complete")
-//        }else {
-//            print("not complete")
-//            fatalError()
-//        }
-//    }
-//}
+//  Created by Yume on 2018/1/11.
+//  Copyright © 2018年 Yume. All rights reserved.
+//
+
+import XCTest
+import Alamofire
+import JSONDecodeKit
+import AwaitKit
+
+//https://developer.apple.com/documentation/xctest/asynchronous_tests_and_expectations/testing_asynchronous_operations_with_expectations
+class YumeAlamofireTests: XCTestCase {
+    
+    func testExample() {
+        let expectation = XCTestExpectation(description: "Download apple.com home page")
+        async {
+            do {
+                let a = try await(Entry.A.init(key: "").promise)
+                
+                XCTAssertEqual(a[0].code, 3)
+                XCTAssertEqual(a[1].code, 4)
+//                print("yume \(a.code)")
+                expectation.fulfill()
+            } catch {
+                XCTAssertTrue(false)
+            }
+        }
+            
+        wait(for: [expectation], timeout: 10.0)
+    }
+}
 

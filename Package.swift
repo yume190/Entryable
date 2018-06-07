@@ -29,5 +29,16 @@ let package = Package(
                 "PromiseKit"
             ]
         ),
+        .testTarget(
+            name: "YumeAlamofireTests",
+            dependencies: [
+                "YumeAlamofire",
+                "Alamofire",
+                "JSONDecodeKit",
+                "AwaitKit",
+                "PromiseKit"
+            ],
+            path: "YumeAlamofireTests"
+        ),
     ]
 )
