@@ -12,6 +12,8 @@
 		A8051ED0200718650010EEE7 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051ECF200718650010EEE7 /* Sample.swift */; };
 		A8051ED22007190B0010EEE7 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
+		A81D4C09213D370100530F6A /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D4C07213D370100530F6A /* Mock.swift */; };
+		A81D4C0A213D370100530F6A /* MockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D4C08213D370100530F6A /* MockTests.swift */; };
 		A8281FAC20737CA800725A91 /* Entryable+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA620737CA800725A91 /* Entryable+Codable.swift */; };
 		A8281FAD20737CA800725A91 /* Entryable+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA720737CA800725A91 /* Entryable+Array.swift */; };
 		A8281FAE20737CA800725A91 /* Entryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA820737CA800725A91 /* Entryable.swift */; };
@@ -61,6 +63,8 @@
 		A8051EC6200718520010EEE7 /* YumeAlamofireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumeAlamofireTests.swift; sourceTree = "<group>"; };
 		A8051EC8200718520010EEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8051ECF200718650010EEE7 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		A81D4C07213D370100530F6A /* Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		A81D4C08213D370100530F6A /* MockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTests.swift; sourceTree = "<group>"; };
 		A8281FA620737CA800725A91 /* Entryable+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entryable+Codable.swift"; path = "Sources/YumeAlamofire/Entryable+Codable.swift"; sourceTree = SOURCE_ROOT; };
 		A8281FA720737CA800725A91 /* Entryable+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entryable+Array.swift"; path = "Sources/YumeAlamofire/Entryable+Array.swift"; sourceTree = SOURCE_ROOT; };
 		A8281FA820737CA800725A91 /* Entryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entryable.swift; path = Sources/YumeAlamofire/Entryable.swift; sourceTree = SOURCE_ROOT; };
@@ -107,6 +111,8 @@
 		A8051EC5200718520010EEE7 /* YumeAlamofireTests */ = {
 			isa = PBXGroup;
 			children = (
+				A81D4C07213D370100530F6A /* Mock.swift */,
+				A81D4C08213D370100530F6A /* MockTests.swift */,
 				A8051EC6200718520010EEE7 /* YumeAlamofireTests.swift */,
 				A8051EC8200718520010EEE7 /* Info.plist */,
 				A8051ECF200718650010EEE7 /* Sample.swift */,
@@ -235,11 +241,12 @@
 				TargetAttributes = {
 					A8051EC3200718510010EEE7 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
 					};
 					A8F40FE31FF3809B000F01E5 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -304,9 +311,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81D4C0A213D370100530F6A /* MockTests.swift in Sources */,
 				A83E4BD220C8DAAA00F27CE5 /* LocalEntry.swift in Sources */,
 				A8051EC7200718520010EEE7 /* YumeAlamofireTests.swift in Sources */,
 				A8051ED0200718650010EEE7 /* Sample.swift in Sources */,
+				A81D4C09213D370100530F6A /* Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +348,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37MR9UKGT4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -350,7 +360,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.YumeAlamofireTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -359,8 +369,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37MR9UKGT4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -370,7 +381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.YumeAlamofireTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -511,7 +522,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -542,7 +553,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

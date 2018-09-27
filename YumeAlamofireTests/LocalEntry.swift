@@ -25,7 +25,7 @@ struct Entry {
 
 extension Entry {
     struct A: Entryable {
-        typealias ResponseType = [Response]
+        typealias ResponseType = Response
         
         let key: String
         

@@ -18,10 +18,9 @@ class YumeAlamofireTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Download apple.com home page")
         async {
             do {
-                let a = try await(Entry.A.init(key: "").promise)
+                let a = try await(Entry.A(key: "").promise)
                 
-                XCTAssertEqual(a[0].code, 3)
-                XCTAssertEqual(a[1].code, 4)
+                XCTAssertEqual(a.code, 3)
 //                print("yume \(a.code)")
                 expectation.fulfill()
             } catch {
@@ -29,7 +28,7 @@ class YumeAlamofireTests: XCTestCase {
             }
         }
             
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 15.0)
     }
 }
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'YumeAlamofire'
-  s.version  = '4.1.2'
+  s.version  = '4.2.0'
   s.license  = 'MIT'
   s.summary  = "A Library combine network request and json decode in POP way"
   s.homepage = 'https://github.com/yume190/YumeAlamofire'
@@ -14,11 +14,12 @@ Pod::Spec.new do |s|
   # s.watchos.deployment_target = '2.0'
   s.source_files = ['Sources/YumeAlamofire/*.swift']
 
-  s.swift_version = '4.1'
+  s.swift_version = '4.2'
   s.static_framework = true
 
-  s.dependency "Alamofire", "~> 4.4"
+  s.dependency "Alamofire", "~> 4.7.3"
   s.dependency "JSONDecodeKit", "~> 4.1"
-  s.dependency 'AwaitKit', '~> 5.0.0'
-  s.dependency 'PromiseKit', '~> 6.2.8'
+  s.dependency 'AwaitKit', '~> 5.0.1'
+  s.dependency 'PromiseKit', '~> 6.4.1'
+
 end
