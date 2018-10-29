@@ -15,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.7.3"),
         .package(url: "https://github.com/yume190/JSONDecodeKit.git", from: "4.1.0"),
         .package(url: "https://github.com/yannickl/AwaitKit.git", from: "5.0.1"),
-        .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.4.1")
+        .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.5.2")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

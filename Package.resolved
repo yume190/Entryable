@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
           "branch": null,
-          "revision": "2fb881a1702cb1976c36192aceb54dcedab6fdc2",
-          "version": "4.7.2"
+          "revision": "61a780f3b58ee0d2bb76fdb7b89dbc9751d521d7",
+          "version": "4.7.3"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/yannickl/AwaitKit.git",
         "state": {
           "branch": null,
-          "revision": "961ea74f7e8d1321bb0104544ffec7b43b031041",
-          "version": "5.0.0"
+          "revision": "e258f42003f003c7579e69b87a82b4d9a545df61",
+          "version": "5.0.1"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
         "state": {
           "branch": null,
-          "revision": "3e6763e3aedee6c8f65cc3c1ea460f9fe7a7b05b",
-          "version": "6.2.9"
+          "revision": "66bcc386163121f14ee543aa20b682973cc98dd7",
+          "version": "6.5.2"
         }
       }
     ]
