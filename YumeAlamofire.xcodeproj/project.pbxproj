@@ -19,7 +19,7 @@
 		A8281FAE20737CA800725A91 /* Entryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA820737CA800725A91 /* Entryable.swift */; };
 		A8281FAF20737CA800725A91 /* Entryable+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FA920737CA800725A91 /* Entryable+Single.swift */; };
 		A8281FB020737CA800725A91 /* YumeAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8281FAA20737CA800725A91 /* YumeAlamofire.swift */; };
-		A83E4BBD20C7DC2600F27CE5 /* Entryable+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E4BBC20C7DC2600F27CE5 /* Entryable+Await.swift */; };
+		A83E4BBD20C7DC2600F27CE5 /* Entryable+Prmoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E4BBC20C7DC2600F27CE5 /* Entryable+Prmoise.swift */; };
 		A83E4BD220C8DAAA00F27CE5 /* LocalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E4BD120C8DAAA00F27CE5 /* LocalEntry.swift */; };
 		A83E4BD520C8DD1300F27CE5 /* AwaitKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD320C8DD1300F27CE5 /* AwaitKit.framework */; };
 		A83E4BD620C8DD1300F27CE5 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */; };
@@ -27,6 +27,7 @@
 		A83E4BD820C8DD3C00F27CE5 /* PromiseKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A83E4BDA20C8DD5C00F27CE5 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; };
 		A83E4BDB20C8DD6500F27CE5 /* JSONDecodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8BD348B21B77573005820E0 /* Entryable+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD348A21B77573005820E0 /* Entryable+Await.swift */; };
 		A8F40FE81FF3809B000F01E5 /* YumeAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
 		A8F4886B207B79BB00E1DA7E /* Sample+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A862203A206E2DBC00BC55F6 /* Sample+Array.swift */; };
@@ -70,13 +71,14 @@
 		A8281FA820737CA800725A91 /* Entryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entryable.swift; path = Sources/YumeAlamofire/Entryable.swift; sourceTree = SOURCE_ROOT; };
 		A8281FA920737CA800725A91 /* Entryable+Single.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entryable+Single.swift"; path = "Sources/YumeAlamofire/Entryable+Single.swift"; sourceTree = SOURCE_ROOT; };
 		A8281FAA20737CA800725A91 /* YumeAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YumeAlamofire.swift; path = Sources/YumeAlamofire/YumeAlamofire.swift; sourceTree = SOURCE_ROOT; };
-		A83E4BBC20C7DC2600F27CE5 /* Entryable+Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entryable+Await.swift"; path = "Sources/YumeAlamofire/Entryable+Await.swift"; sourceTree = SOURCE_ROOT; };
+		A83E4BBC20C7DC2600F27CE5 /* Entryable+Prmoise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entryable+Prmoise.swift"; path = "Sources/YumeAlamofire/Entryable+Prmoise.swift"; sourceTree = SOURCE_ROOT; };
 		A83E4BD120C8DAAA00F27CE5 /* LocalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEntry.swift; sourceTree = "<group>"; };
 		A83E4BD320C8DD1300F27CE5 /* AwaitKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AwaitKit.framework; path = Carthage/Build/iOS/AwaitKit.framework; sourceTree = "<group>"; };
 		A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONDecodeKit.framework; path = Carthage/Build/iOS/JSONDecodeKit.framework; sourceTree = "<group>"; };
 		A862203A206E2DBC00BC55F6 /* Sample+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Array.swift"; sourceTree = "<group>"; };
 		A862203C206E2DC700BC55F6 /* Sample+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Codable.swift"; sourceTree = "<group>"; };
+		A8BD348A21B77573005820E0 /* Entryable+Await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entryable+Await.swift"; sourceTree = "<group>"; };
 		A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YumeAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YumeAlamofire.h; sourceTree = "<group>"; };
 		A8F40FE71FF3809B000F01E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,7 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				A8281FA820737CA800725A91 /* Entryable.swift */,
-				A83E4BBC20C7DC2600F27CE5 /* Entryable+Await.swift */,
+				A83E4BBC20C7DC2600F27CE5 /* Entryable+Prmoise.swift */,
+				A8BD348A21B77573005820E0 /* Entryable+Await.swift */,
 				A8281FA720737CA800725A91 /* Entryable+Array.swift */,
 				A8281FA620737CA800725A91 /* Entryable+Codable.swift */,
 				A8281FA920737CA800725A91 /* Entryable+Single.swift */,
@@ -327,9 +330,10 @@
 				A8F4886B207B79BB00E1DA7E /* Sample+Array.swift in Sources */,
 				A8281FAD20737CA800725A91 /* Entryable+Array.swift in Sources */,
 				A8281FAF20737CA800725A91 /* Entryable+Single.swift in Sources */,
-				A83E4BBD20C7DC2600F27CE5 /* Entryable+Await.swift in Sources */,
+				A83E4BBD20C7DC2600F27CE5 /* Entryable+Prmoise.swift in Sources */,
 				A8281FB020737CA800725A91 /* YumeAlamofire.swift in Sources */,
 				A8281FAC20737CA800725A91 /* Entryable+Codable.swift in Sources */,
+				A8BD348B21B77573005820E0 /* Entryable+Await.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

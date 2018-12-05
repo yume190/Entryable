@@ -8,7 +8,6 @@
 
 import Foundation
 import PromiseKit
-import AwaitKit
 import JSONDecodeKit
 
 extension Entryable {
