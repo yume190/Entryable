@@ -1,6 +1,9 @@
 # osx_image: xcode9.1 settings
 # https://docs.travis-ci.com/user/reference/osx#Xcode-version
 language: swift # or objective-c
+cache:
+  directories:
+    - Carthage
 xcode_project: YumeAlamofire.xcodeproj # path to your xcodeproj folder
 xcode_scheme: YumeAlamofire
 podfile: pod # Disable `pod install`
@@ -62,18 +65,28 @@ env:
       # appletvsimulator12.0
       # watchsimulator5.0
 
-script:
-  - set -o pipefail
-  - xcodebuild -version
-  - xcodebuild -showsdks
-  - instruments -s devices
-
-  - if [ $USE_MAKE == "YES" ]; then
-      make $MAKE_TARGET;
-    else
-      carthage update --platform ios;
-      xcodebuild -project $SCHEME.xcodeproj -scheme $SCHEME -configuration $RELEASE -sdk $SDK -destination "$DESTINATION" clean build test | xcpretty;
-    fi
+jobs:
+  include:
+    - stage: dependency prepare
+      script: 
+        - xcodebuild -version
+        - xcodebuild -showsdks
+        - instruments -s devices
+        - if [ $USE_MAKE == "YES" ]; then
+            true;
+          else
+            carthage update --platform ios;
+          fi
+        - 
+    
+    - stage: test
+      script:
+        - set -o pipefail
+        - if [ $USE_MAKE == "YES" ]; then
+            make $MAKE_TARGET;
+          else
+            xcodebuild -project $SCHEME.xcodeproj -scheme $SCHEME -configuration $RELEASE -sdk $SDK -destination "$DESTINATION" clean build test | xcpretty;
+          fi
 
 #clean test
 after_success:
