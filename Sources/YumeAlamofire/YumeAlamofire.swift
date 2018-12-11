@@ -6,8 +6,9 @@
 //  Copyright © 2017年 Yume. All rights reserved.
 
 import Foundation
-import JSONDecodeKit
-import Alamofire
+import protocol JSONDecodeKit.JSONDecodable
+import struct JSONDecodeKit.JSON
+import struct Alamofire.DefaultDataResponse
 
 internal func guardData(res: DefaultDataResponse) -> (response: HTTPURLResponse, data: Data)? {
     guard let response = res.response, let data = res.data else {
@@ -30,7 +31,7 @@ extension YumeAlamofire {
 }
 
 extension YumeAlamofire {
-    internal static func parseErrorHandle<OutputType>(type:OutputType.Type, url:URL?, error:Error) {
+    internal static func parseErrorHandle<OutputType>(type: OutputType.Type, url:URL?, error:Error) {
         let parseError = [
             "API Data Parse Error.",
             "Type : \(OutputType.self)",

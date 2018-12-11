@@ -12,13 +12,12 @@ import Alamofire
 struct Entry {
     static let base = "http://127.0.0.1:3000"
     
-    public static let alamofire:SessionManager = {
+    public static let sessionManager: SessionManager = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 15 // seconds
         configuration.timeoutIntervalForResource = 15
         configuration.urlCache = nil
-        let alamofire = Alamofire.SessionManager(configuration: configuration)
-        return alamofire
+        return SessionManager(configuration: configuration)
     }()
 }
 
@@ -28,12 +27,15 @@ extension Entry {
         typealias ResponseType = Response
         
         let key: String
+        init(key: String) {
+            self.key = key
+        }
         
         let base: String = Entry.base
         var path: String { return "/yume" }
-        let sessionManager: Alamofire.SessionManager = Entry.alamofire
+        let sessionManager: SessionManager = Entry.sessionManager
         let method: Alamofire.HTTPMethod = .get
-        let parameters: Parameters = [:]
+        let parameters: Parameters = ["a":"b"]
         let isJSONRequest: Bool = false
         var headers: Headers {
             return ["key" : key]
@@ -42,8 +44,30 @@ extension Entry {
 }
 
 extension Entry.A {
-    struct Response: Codable {
+    public struct Response: Codable, Equatable {
         let code: Int
         let message: String
+    }
+}
+
+
+extension Entry {
+    struct B: Entryable {
+        typealias ResponseType = Void
+        
+        let key: String
+        init(key: String) {
+            self.key = key
+        }
+        
+        let base: String = Entry.base
+        var path: String { return "/yume" }
+        let sessionManager: SessionManager = Entry.sessionManager
+        let method: Alamofire.HTTPMethod = .head
+        let parameters: Parameters = [:]
+        let isJSONRequest: Bool = false
+        var headers: Headers {
+            return ["key" : key]
+        }
     }
 }

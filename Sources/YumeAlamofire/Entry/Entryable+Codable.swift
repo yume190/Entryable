@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import Alamofire
+import struct Alamofire.DefaultDataResponse
+import class Alamofire.DataRequest
 
 extension Entryable where ResponseType: Codable {
     
@@ -21,7 +22,7 @@ extension Entryable where ResponseType: Codable {
         failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil,
         successHandler: ((ResponseType) -> Void)?) {
         
-        request(
+        self.request(
             dataRequeset: entry.dataRequest,
             responseInfo: responseInfo,
             failureHandler: failureHandler,
@@ -41,8 +42,7 @@ extension Entryable where ResponseType: Codable {
                 return
             }
             do {
-                let decoder = JSONDecoder()
-                let result = try decoder.decode(OutputType.self, from: target.data)
+                let result = try OutputType.decode(data: target.data)
                 successHandler?(result)
             } catch {
                 failureHandler?(res)

@@ -1,4 +1,6 @@
-github "Alamofire/Alamofire" "4.7.3"
-github "mxcl/PromiseKit" "6.5.2"
+github "Alamofire/Alamofire" "4.8.0"
+github "Quick/Nimble" "v7.3.1"
+github "Quick/Quick" "v1.3.2"
+github "mxcl/PromiseKit" "6.7.0"
 github "yannickl/AwaitKit" "5.0.1"
 github "yume190/JSONDecodeKit" "4.1.0"

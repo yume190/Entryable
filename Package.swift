@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "YumeAlamofire",
     products: [
-        .library(name: "YumeAlamofire", type: .static, targets: ["YumeAlamofire"])
+        .library(name: "YumeAlamofire", type: .static, targets: ["YumeAlamofire"]),
+        .library(name: "JSONMock", type: .static, targets: ["JSONMock"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -29,10 +30,18 @@ let package = Package(
                 "PromiseKit"
             ]
         ),
+        .target(
+            name: "JSONMock",
+            dependencies: [
+                "YumeAlamofire",
+            ]
+        ),
         .testTarget(
             name: "YumeAlamofireTests",
             dependencies: [
                 "YumeAlamofire",
+                "JSONMock",
+                
                 "Alamofire",
                 "JSONDecodeKit",
                 "AwaitKit",

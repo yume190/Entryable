@@ -1,0 +1,76 @@
+# osx_image: xcode9.1 settings
+# https://docs.travis-ci.com/user/reference/osx#Xcode-version
+language: swift # or objective-c
+xcode_project: YumeAlamofire.xcodeproj # path to your xcodeproj folder
+xcode_scheme: YumeAlamofire
+podfile: pod # Disable `pod install`
+osx_image: xcode10.1
+git:
+  depth: 1
+  submodules: false
+branches:
+  only:
+    - master
+install:
+  - brew install make carthage
+env:
+  global:
+  - RELEASE=Debug
+  - SCHEME=YumeAlamofire
+  matrix:
+
+    # - SDK=macosx
+    #   DESTINATION='platform=OS X,arch=x86_64'
+    #   USE_MAKE="NO"
+    #   MAKE_TARGET=""
+
+    - SDK=iphonesimulator
+      DESTINATION='platform=iOS Simulator,OS=11.3,name=iPhone X'
+      USE_MAKE="NO"
+      MAKE_TARGET=""
+    - SDK=iphonesimulator
+      DESTINATION='platform=iOS Simulator,OS=10.3.1,name=iPhone 7 Plus'
+      USE_MAKE="NO"
+      MAKE_TARGET=""
+    - SDK=iphonesimulator
+      DESTINATION='platform=iOS Simulator,OS=9.3,name=iPhone 6'
+      USE_MAKE="NO"
+      MAKE_TARGET=""
+    - SDK=iphonesimulator
+      DESTINATION='platform=iOS Simulator,OS=9.0,name=iPhone 6'
+      USE_MAKE="NO"
+      MAKE_TARGET=""
+    
+    - SDK=""
+      DESTINATION=""
+      USE_MAKE="YES"
+      MAKE_TARGET="carthage"
+
+    - SDK=""
+      DESTINATION=""
+      USE_MAKE="YES"
+      MAKE_TARGET="pod"
+    
+    - SDK=""
+      DESTINATION=""
+      USE_MAKE="YES"
+      MAKE_TARGET="spm"
+
+      # appletvsimulator12.0
+      # watchsimulator5.0
+
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - instruments -s devices
+
+  - if [ $USE_MAKE == "YES" ]; then
+      make $MAKE_TARGET
+    else
+     xcodebuild -project $SCHEME.xcodeproj -scheme $SCHEME -configuration $RELEASE -sdk $SDK -destination "$DESTINATION" clean build test | xcpretty
+    fi
+
+#clean test
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

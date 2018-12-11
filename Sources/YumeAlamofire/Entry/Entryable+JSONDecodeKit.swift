@@ -7,8 +7,10 @@
 //
 
 import Foundation
-import JSONDecodeKit
-import Alamofire
+import protocol JSONDecodeKit.JSONDecodable
+import struct JSONDecodeKit.JSON
+import struct Alamofire.DefaultDataResponse
+import class Alamofire.DataRequest
 
 extension Entryable where ResponseType: JSONDecodable {
     
@@ -16,8 +18,8 @@ extension Entryable where ResponseType: JSONDecodable {
         Self.request(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }
     
-    private static func decodeAsSingle<OutputType:JSONDecodable>(data:Data) throws -> OutputType {
-        return try OutputType.decode(json: JSON(data: data,isTraceKeypath:true))
+    private static func decodeAsSingle<OutputType: JSONDecodable>(data: Data) throws -> OutputType {
+        return try OutputType.decode(json: JSON(data: data, isTraceKeypath: true))
     }
     
     public static func request(
@@ -26,7 +28,7 @@ extension Entryable where ResponseType: JSONDecodable {
         failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil,
         successHandler: ((ResponseType) -> Void)?) {
         
-        request(
+        self.request(
             dataRequeset: entry.dataRequest,
             responseInfo: responseInfo,
             failureHandler: failureHandler,
@@ -34,9 +36,9 @@ extension Entryable where ResponseType: JSONDecodable {
         )
     }
     
-    public static func request<OutputType:JSONDecodable>(
-        dataRequeset:Alamofire.DataRequest,
-        responseInfo:@escaping YumeAlamofire.DebugInfoFunction = YumeAlamofire.basicDebugInfo,
+    public static func request<OutputType: JSONDecodable>(
+        dataRequeset: Alamofire.DataRequest,
+        responseInfo: @escaping YumeAlamofire.DebugInfoFunction = YumeAlamofire.basicDebugInfo,
         failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil,
         successHandler: ((OutputType) -> Void)?) {
         dataRequeset.response {
