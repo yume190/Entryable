@@ -6,6 +6,7 @@
 //  Copyright © 2018 Yume. All rights reserved.
 //
 
+#if !COCOAPODS
 import Foundation
 
 extension Encodable {
@@ -17,3 +18,4 @@ extension Encodable {
         return try Self.encode(data: self, encoder: encoder)
     }
 }
+#endif

@@ -11,8 +11,10 @@ git:
 branches:
   only:
     - master
-install:
+before_install:
   - brew install make carthage
+  - carthage update --platform ios
+# install:
 env:
   global:
   - RELEASE=Debug
@@ -41,10 +43,10 @@ env:
       USE_MAKE="NO"
       MAKE_TARGET=""
     
-    - SDK=""
-      DESTINATION=""
-      USE_MAKE="YES"
-      MAKE_TARGET="carthage"
+    # - SDK=""
+    #   DESTINATION=""
+    #   USE_MAKE="YES"
+    #   MAKE_TARGET="carthage"
 
     - SDK=""
       DESTINATION=""

@@ -7,7 +7,9 @@
 //
 
 import Foundation
+#if !COCOAPODS
 import enum YumeAlamofire.NetError
+#endif
 
 public class JSONMock : URLProtocol {
     public typealias FakeData = (data: Data, code: Int, header: [String:String])

@@ -11,7 +11,7 @@ carthage:
 	carthage build \
 		--no-skip-current \
 		--platform ios \
-		--configuration ReleaseFramework \
+		--configuration Release \
 		YumeAlamofire JSONMock
 	test -d Carthage/Build/iOS/YumeAlamofire.framework
 	test -d Carthage/Build/iOS/JSONMock.framework
