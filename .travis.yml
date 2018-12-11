@@ -67,19 +67,14 @@ env:
 
 jobs:
   include:
-    - stage: dependency prepare
+    - stage: Dependency Prepare
       script: 
         - xcodebuild -version
         - xcodebuild -showsdks
         - instruments -s devices
-        - if [ $USE_MAKE == "YES" ]; then
-            true;
-          else
-            carthage update --platform ios;
-          fi
-        - 
+        - carthage update --platform ios
     
-    - stage: test
+    - stage: Test
       script:
         - set -o pipefail
         - if [ $USE_MAKE == "YES" ]; then
