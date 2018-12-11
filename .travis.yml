@@ -13,12 +13,13 @@ branches:
     - master
 before_install:
   - brew install make carthage
-  - carthage update --platform ios
+  # - carthage update --platform ios
 # install:
 env:
   global:
   - RELEASE=Debug
   - SCHEME=YumeAlamofire
+  - secure: "WUefOYrG4nqF437c23IOhh9zikJvBK4r7u+ZkCn/6fjSqDf98HW8Fb1hU8mcXt90Eq4gqnn30PghlVigIiZlduU4+RJ+hWKneW7sABn7CUhfM57SFBCHEIPrGWgfhA7uS/PUCYGpCgzzuDLgcys4bJBIpQknXsKueJvgO/BxAZm8HOZTzRFP31ekxvo7cSicfkEU9GL4J+Gwxx219uHoIMSliMnERsbtu1WP6uY7m655FGLjk5vhabFgwOYUhN6REIlu1KpFvC7uUUng7pKBaKZLYQysZywrEpTD/1XBRpn8IPntw8SKmHz5h2M4DIW4mhSCxS4TciQcxH2XL+7XNM9i//HBmatx+9p8CaoNmbc1UN4vfcO0rf1aQrCX8tEU3lSyi5uZ/qwnINO2GJDYEy/q7GS6yRNKhSvMRwumjoUuD9p81UDVi4kknXIoqgJnXEcK12a1mU4LmxdVjXUaALB+DKKbiPDps+DUFeGtJ+6ZhinxUilGWpVLFjeOuCOdfpW+wjrBjSXURNMhfOHtMGB/XpcI2/Hq2sgzzn2sdL3Io2c0c/9Ji6WnX2jmrWsn9AK2h5N0QI71/wqxQaej1GmapxiW7h5oFUMI0w1Et6SDGfweV65NteecfSoDi8mgLpcCCriZ4IPY5771E0aTSOxdo05RmWVEWdNZQKkLY/g="
   matrix:
 
     # - SDK=macosx
@@ -70,6 +71,7 @@ script:
   - if [ $USE_MAKE == "YES" ]; then
       make $MAKE_TARGET;
     else
+      carthage update --platform ios;
       xcodebuild -project $SCHEME.xcodeproj -scheme $SCHEME -configuration $RELEASE -sdk $SDK -destination "$DESTINATION" clean build test | xcpretty;
     fi
 
