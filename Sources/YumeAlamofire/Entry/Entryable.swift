@@ -51,7 +51,7 @@ extension Entryable {
             self.url,
             method: self.method,
             parameters: self.parameters,
-            encoding: self.requestType.encoder,
+            encoding: self.parameterType.encoder,
             headers: self.headers
         )
     }
