@@ -35,7 +35,7 @@ public protocol Entryable {
     
     var parameters: Parameters { get }
     
-    var requestType: ParameterType { get }
+    var parameterType: ParameterType { get }
 }
 
 extension Entryable {
@@ -44,7 +44,7 @@ extension Entryable {
         return base + path
     }
     
-    public var requestType: ParameterType { return .url }
+    public var parameterType: ParameterType { return .url }
     
     public var dataRequest: Alamofire.DataRequest {
         return sessionManager.request(
