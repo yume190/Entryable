@@ -13,7 +13,7 @@ extension Encodable {
     internal static func encode<T: Encodable>(data: T, encoder: JSONEncoder = JSONEncoder()) throws -> Data {
         return try encoder.encode(data)
     }
-    
+
     internal func encode(encoder: JSONEncoder = JSONEncoder()) throws -> Data {
         return try Self.encode(data: self, encoder: encoder)
     }

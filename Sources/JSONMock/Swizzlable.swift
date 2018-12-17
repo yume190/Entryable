@@ -22,8 +22,8 @@ internal class Swizzle {
         let autoreleasingTypes = AutoreleasingUnsafeMutablePointer<AnyClass>(types)
         objc_getClassList(autoreleasingTypes, Int32(typeCount))
         for index in 0 ..< typeCount {
-            if let s = types[index] as? Swizzlable.Type {
-                s.swizzle()
+            if let swizzlable = types[index] as? Swizzlable.Type {
+                swizzlable.swizzle()
             }
         }
         types.deallocate()

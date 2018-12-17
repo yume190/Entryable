@@ -11,17 +11,18 @@ import struct Alamofire.DefaultDataResponse
 import class Alamofire.DataRequest
 
 extension Entryable where ResponseType: Codable {
-    
+
+    // swiftlint:disable line_length
     public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: ((ResponseType) -> Void)?) {
         Self.request(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }
-    
+
     public static func request(
         entry: Self,
         responseInfo: @escaping YumeAlamofire.DebugInfoFunction = YumeAlamofire.basicDebugInfo,
         failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil,
         successHandler: ((ResponseType) -> Void)?) {
-        
+
         self.request(
             dataRequeset: entry.dataRequest,
             responseInfo: responseInfo,
@@ -29,14 +30,13 @@ extension Entryable where ResponseType: Codable {
             successHandler: successHandler
         )
     }
-    
+
     public static func request<OutputType: Codable>(
         dataRequeset: Alamofire.DataRequest,
         responseInfo: @escaping YumeAlamofire.DebugInfoFunction = YumeAlamofire.basicDebugInfo,
         failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil,
         successHandler: ((OutputType) -> Void)?) {
-        dataRequeset.response {
-            res in
+        dataRequeset.response { res in
             guard let target = guardData(res: res) else {
                 failureHandler?(res)
                 return

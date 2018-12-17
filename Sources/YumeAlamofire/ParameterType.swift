@@ -18,7 +18,7 @@ public enum ParameterType {
     case json
     case propertyList
     case custom(ParameterEncoding)
-    
+
     public var encoder: ParameterEncoding {
         switch self {
         case .url: return URLEncoding.default

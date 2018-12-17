@@ -19,7 +19,7 @@ extension Entryable {
                 guard let data = res.data else { return seal.reject(error) }
                 guard let request = res.request else { return seal.reject(error) }
                 guard let response = res.response else { return seal.reject(error) }
-                
+
                 let result = Response<Data>(
                     data: data,
                     request: request,
@@ -29,7 +29,7 @@ extension Entryable {
             }
         }
     }
-    
+
     public var promiseVoid: Promise<Response<Void>> {
         return Promise<Response<Void>> { (seal) in
             self.dataRequest.responseData { (res) in
@@ -37,7 +37,7 @@ extension Entryable {
 //                guard let data = res.data else { seal.reject(error) }
                 guard let request = res.request else { return seal.reject(error) }
                 guard let response = res.response else { return seal.reject(error) }
-                
+
                 let result = Response<Void>(
                     data: (),
                     request: request,
@@ -51,12 +51,12 @@ extension Entryable {
 
 extension Entryable where ResponseType: Codable {
     public var promise: Promise<Response<ResponseType>> {
-        return self.promiseData.map { (data) throws -> Response<ResponseType> in
-            let _data = try ResponseType.decode(data: data.data)
+        return self.promiseData.map { (response) throws -> Response<ResponseType> in
+            let data = try ResponseType.decode(data: response.data)
             return Response<ResponseType>(
-                data: _data,
-                request: data.request,
-                response: data.response
+                data: data,
+                request: response.request,
+                response: response.response
             )
         }
     }
@@ -64,12 +64,12 @@ extension Entryable where ResponseType: Codable {
 
 extension Entryable where ResponseType: JSONDecodable {
     public var promise: Promise<Response<ResponseType>> {
-        return self.promiseData.map { (data) throws -> Response<ResponseType> in
-            let _data = try ResponseType.decode(json: JSON(data: data.data))
+        return self.promiseData.map { (response) throws -> Response<ResponseType> in
+            let data = try ResponseType.decode(json: JSON(data: response.data))
             return Response<ResponseType>(
-                data: _data,
-                request: data.request,
-                response: data.response
+                data: data,
+                request: response.request,
+                response: response.response
             )
         }
     }

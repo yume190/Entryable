@@ -1,3 +1,4 @@
+// swiftlint:disable line_length
 import Foundation
 
 extension URLSessionConfiguration: Swizzlable {
@@ -6,13 +7,13 @@ extension URLSessionConfiguration: Swizzlable {
         let mockingDefaultSessionConfiguration = class_getClassMethod(URLSessionConfiguration.self, #selector(URLSessionConfiguration.mockingDefaultSessionConfiguration))
         method_exchangeImplementations(defaultSessionConfiguration!, mockingDefaultSessionConfiguration!)
     }
-    
+
     private static func swizzleEphemeral() {
         let ephemeralSessionConfiguration = class_getClassMethod(URLSessionConfiguration.self, #selector(getter: URLSessionConfiguration.ephemeral))
         let mockingEphemeralSessionConfiguration = class_getClassMethod(URLSessionConfiguration.self, #selector(URLSessionConfiguration.mockingEphemeralSessionConfiguration))
         method_exchangeImplementations(ephemeralSessionConfiguration!, mockingEphemeralSessionConfiguration!)
     }
-    
+
     public static func swizzle() {
         self.swizzleDefault()
         self.swizzleEphemeral()
