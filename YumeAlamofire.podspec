@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'YumeAlamofire'
-  s.version  = '4.2.6'
+  s.version  = '4.2.7'
   s.license  = 'MIT'
   s.summary  = "A Library combine network request and json decode in POP way"
   s.homepage = 'https://github.com/yume190/YumeAlamofire'
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   # s.osx.deployment_target = '10.11'
-  
+
   # s.tvos.deployment_target = '9.0'
   # s.watchos.deployment_target = '2.0'
   s.default_subspec = "Core"
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |ss|
     ss.source_files = [
-      'Sources/YumeAlamofire/*.swift', 
+      'Sources/YumeAlamofire/*.swift',
       'Sources/YumeAlamofire/Entry/*.swift',
       'Sources/YumeAlamofire/Error/*.swift',
       'Sources/YumeAlamofire/Misc/*.swift'

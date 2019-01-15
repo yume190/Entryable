@@ -12,17 +12,10 @@ import enum YumeAlamofire.NetError
 #endif
 
 public class JSONMock: URLProtocol {
-    public typealias FakeData = (data: Data, code: Int, header: [String: String])
-    public typealias FakeJSON<T: Encodable> = (json: T, code: Int, header: [String: String])
-    private static var fakes: [String: FakeData] = [:]
 
-    public static func fake<T: Encodable>(url: String, res: FakeJSON<T>) throws {
-        let res = (try res.json.encode(), res.code, res.header)
-        self.fake(url: url, res: res)
-    }
-
-    public static func fake(url: String, res: FakeData) {
-        self.fakes[url] = res
+    private static var fakes: [String: Fake] = [:]
+    public static func fake(url: String, fake: Fake) {
+        self.fakes[url] = fake
     }
 
     override public class func canInit(with request: URLRequest) -> Bool {
@@ -47,44 +40,22 @@ public class JSONMock: URLProtocol {
         return scheme + "://" + host + port + url.path
     }
 
-    var fakeResponse: HTTPURLResponse? {
-        guard let url = request.url else { return nil }
+    var fake: Fake? {
         guard let urlPath = urlPath else { return nil }
         guard let fake = JSONMock.fakes[urlPath] else { return nil }
-        return HTTPURLResponse(
-            url: url,
-            statusCode: fake.code,
-            httpVersion: kCFHTTPVersion1_1 as String,
-            headerFields: fake.header
-        )
-    }
-
-    var fakeData: Data? {
-        guard let urlPath = urlPath else { return nil }
-        guard let fake = JSONMock.fakes[urlPath] else { return nil }
-        return fake.data
+        return fake
     }
 
     override public func startLoading() {
-//        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
-//        let task = session.dataTask(with: self.request)
-//        task.resume()
-        guard let res = self.fakeResponse else {
-            client?.urlProtocol(self, didFailWithError: NetError.unknown)
-            return
-        }
-
-        guard let data = self.fakeData else {
+        guard let fakes = self.fake?.get(request: self.request) else {
             client?.urlProtocol(self, didFailWithError: NetError.unknown)
             return
         }
 
         // HTTPURLResponse()
-        client?.urlProtocol(self, didReceive: res, cacheStoragePolicy: .notAllowed)
-        client?.urlProtocol(self, didLoad: data)
+        client?.urlProtocol(self, didReceive: fakes.response, cacheStoragePolicy: .notAllowed)
+        client?.urlProtocol(self, didLoad: fakes.data)
         client?.urlProtocolDidFinishLoading(self)
-
-//        task.resume()
     }
 
     override public func stopLoading() {

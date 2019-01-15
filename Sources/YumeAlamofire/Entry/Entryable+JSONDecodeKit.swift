@@ -14,7 +14,7 @@ import class Alamofire.DataRequest
 
 extension Entryable where ResponseType: JSONDecodable {
 
-    // swiftlint:disable line_length
+    // swiftlint:disable:next line_length
     public func req(failureHandler: ((Alamofire.DefaultDataResponse) -> Void)? = nil, successHandler: ((ResponseType) -> Void)?) {
         Self.request(entry: self, failureHandler: failureHandler, successHandler: successHandler)
     }

@@ -26,35 +26,34 @@ class YumeAlamofireTests: XCTestCase {
     func testURLSession() {
         let expectation = XCTestExpectation(description: "Download apple.com home page")
         let entry = Entry.A(key: "")
-        do {
-            let url = URL(string: entry.url)!
-            let urlRequest = URLRequest(url: url)
-            try JSONMock.fake(url: entry.url, res: (json: fakeRes, code: 201, header: [:]))
-            
-            let s = URLSession(configuration: URLSessionConfiguration.default)
-            s.dataTask(with: urlRequest) { data, response, error in
-                let d = JSONDecoder()
-                let res = try? d.decode(Entry.A.Response.self, from: data!)
-                XCTAssertEqual(res, self.fakeRes)
-                XCTAssertEqual((response as! HTTPURLResponse).statusCode, 201)
-                expectation.fulfill()
-            }.resume()
-        } catch {
-            print(error)
-            XCTAssertTrue(false)
-        }
+        
+        let url = try! entry.url.asURL()
+        let urlRequest = URLRequest(url: url)
+        JSONMock.fake(
+            url: url.absoluteString,
+            fake: .json(json: fakeRes, code: 201, header: [:])
+        )
+        
+        let s = URLSession(configuration: URLSessionConfiguration.default)
+        s.dataTask(with: urlRequest) { data, response, error in
+            let d = JSONDecoder()
+            let res = try? d.decode(Entry.A.Response.self, from: data!)
+            XCTAssertEqual(res, self.fakeRes)
+            XCTAssertEqual((response as! HTTPURLResponse).statusCode, 201)
+            expectation.fulfill()
+        }.resume()
+        
         wait(for: [expectation], timeout: 15.0)
     }
     
     func testAlamofire1() {
         let expectation = XCTestExpectation(description: "Download apple.com home page")
+        try! JSONMock.fake(
+            url: Entry.A(key: "").url.asURL().absoluteString,
+            fake: .json(json: self.fakeRes, code: 202, header: [:])
+        )
         async {
             do {
-                try JSONMock.fake(
-                    url: Entry.A(key: "").url,
-                    res: (json: self.fakeRes, code: 202, header: [:])
-                )
-
                 let res = try Entry.A(key: "").promise.await()
                 XCTAssertEqual(res.data, self.fakeRes)
                 XCTAssertEqual(res.response.statusCode, 202)
@@ -70,14 +69,12 @@ class YumeAlamofireTests: XCTestCase {
     
     func testAlamofire2() {
         let expectation = XCTestExpectation(description: "Download apple.com home page")
-        
+        try! JSONMock.fake(
+            url: Entry.B(key: "").url.asURL().absoluteString,
+            fake: .json(json: self.fakeRes, code: 202, header: ["a":"b"])
+        )
         async {
             do {
-                try JSONMock.fake(
-                    url: Entry.B(key: "").url,
-                    res: (json: self.fakeRes, code: 202, header: ["a":"b"])
-                )
-
                 let res = try Entry.B(key: "").promiseVoid.await()
                 XCTAssertEqual(res.response.statusCode, 202)
                 XCTAssertEqual(res.response.allHeaderFields as! [String:String], ["a":"b"])

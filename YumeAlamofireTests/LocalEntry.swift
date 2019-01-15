@@ -31,8 +31,7 @@ extension Entry {
             self.key = key
         }
         
-        let base: String = Entry.base
-        var path: String { return "/yume" }
+        let url: URLConvertible = Entry.base + "/yume"
         let sessionManager: SessionManager = Entry.sessionManager
         let method: Alamofire.HTTPMethod = .get
         let parameters: Parameters = ["a":"b"]
@@ -60,8 +59,7 @@ extension Entry {
             self.key = key
         }
         
-        let base: String = Entry.base
-        var path: String { return "/yume" }
+        let url: URLConvertible = Entry.base + "/yume"
         let sessionManager: SessionManager = Entry.sessionManager
         let method: Alamofire.HTTPMethod = .head
         let parameters: Parameters = [:]

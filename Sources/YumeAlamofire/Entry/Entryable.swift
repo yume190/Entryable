@@ -11,19 +11,14 @@ import enum Alamofire.HTTPMethod
 import class Alamofire.SessionManager
 import class Alamofire.DataRequest
 
+import protocol Alamofire.URLConvertible
 public protocol Entryable {
     associatedtype ResponseType
 
     typealias Parameters = [String: Any]
     typealias Headers = [String: String]
 
-    /// The target's base `URL`.
-    var base: String { get }
-
-    /// The path to be appended to `baseURL` to form the full `URL`.
-    var path: String { get }
-
-    var url: String { get }
+    var url: URLConvertible { get }
 
     var sessionManager: Alamofire.SessionManager { get }
 
@@ -39,11 +34,6 @@ public protocol Entryable {
 }
 
 extension Entryable {
-
-    public var url: String {
-        return base + path
-    }
-
     public var parameterType: ParameterType { return .url }
 
     public var dataRequest: Alamofire.DataRequest {
