@@ -53,7 +53,7 @@ script:
 - if [ $USE_MAKE == "YES" ]; then 
     make $MAKE_TARGET; 
   else 
-    carthage build --platform ios; 
+    carthage update --cache-builds --platform ios; 
     xcodebuild -project $SCHEME.xcodeproj -scheme $SCHEME -configuration $RELEASE -sdk $SDK -destination "$DESTINATION" clean build test | xcpretty; 
   fi
 after_success:
