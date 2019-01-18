@@ -47,11 +47,14 @@ env:
 
 script:
 - set -o pipefail
-- xcodebuild -version
-- xcodebuild -showsdks
-- instruments -s devices
-- if [ $USE_MAKE == "YES" ]; then make $MAKE_TARGET; else carthage build --cache-builds
-  --platform ios; xcodebuild -project $SCHEME.xcodeproj -scheme $SCHEME -configuration
-  $RELEASE -sdk $SDK -destination "$DESTINATION" clean build test | xcpretty; fi
+# - xcodebuild -version
+# - xcodebuild -showsdks
+# - instruments -s devices
+- if [ $USE_MAKE == "YES" ]; then 
+    make $MAKE_TARGET; 
+  else 
+    carthage build --platform ios; 
+    xcodebuild -project $SCHEME.xcodeproj -scheme $SCHEME -configuration $RELEASE -sdk $SDK -destination "$DESTINATION" clean build test | xcpretty; 
+  fi
 after_success:
 - bash <(curl -s https://codecov.io/bash)
