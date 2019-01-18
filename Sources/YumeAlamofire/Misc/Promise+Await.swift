@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import class PromiseKit.Promise
+import PromiseKit
 import func AwaitKit.await
 
 extension Promise {

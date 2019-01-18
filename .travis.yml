@@ -1,4 +1,9 @@
-language: swift
+# osx_image: xcode9.1 settings
+# https://docs.travis-ci.com/user/reference/osx#Xcode-version
+language: swift # or objective-c
+cache:
+  directories:
+  - Carthage
 xcode_project: YumeAlamofire.xcodeproj
 xcode_scheme: YumeAlamofire
 podfile: pod
@@ -17,6 +22,11 @@ env:
   - SCHEME=YumeAlamofire
   - secure: 35SdGZ6XF9nqYXwJfdim9Lkie1xiQEq30zKgEHdJx8w/C+Zk1+8NlrtL7yyTp0XWoiuDypgKvDGxmaMO7HvIJVgc3k4Jn1n+cXeb0u0JGmNNIdufNsrtkT40bB7596EvhsSzaKfux/Pdlv/i/S9xZLxsTNgLubKh8gloatyqv5lODjPFqt9YDE045NcddsSWXai8VlZv+Ya2iDAIcuwtf22EE0lVMA+25FgAM0dMZNf2uLxteWs/pVy1+vjORyE2jOIwSk2JohkK320p/s/EvgAgjj1k0k+BK6AHGz8wsvgjvQhsCUaPj2fulCO9ZEOcdkrD+DHp+BTDeHRMGxeNgGHA59GiexrGUOyjOVEsZTG0c5YDc5pFihorJwMmquQt+rUtOuIs/nN2L9UarhIhzngqSF1lwEOqs5yuyKM4Olp3cYI3vygBw5WR9xkBsNgrCh/tobwXCQgIbstFgPgpLOHT/P/dM+GFmrxgruSyWfrEcDtvEhbMQAirohGED/HkMzxNWIG9flKPfw1b2u2L77gHkjjqZKUDs2sGjRfZwiftAiFubLwve+3rw/t8omcLDyQVpvZjMB37gKzvtHserARdLnS6mJq90EVdV0kaYAlacxbk/A20o2R++xtKapZkR2/psA0ZUxBWK6yOu+ORoRJ2ZNIt/CIYTj4VD9O7lyY=
   matrix:
+  # - SDK=macosx
+  #   DESTINATION='platform=OS X,arch=x86_64'
+  #   USE_MAKE="NO"
+  #   MAKE_TARGET=""
+
   - SDK=iphonesimulator DESTINATION='platform=iOS Simulator,OS=11.3,name=iPhone X'
     USE_MAKE="NO" MAKE_TARGET=""
   - SDK=iphonesimulator DESTINATION='platform=iOS Simulator,OS=10.3.1,name=iPhone
@@ -25,8 +35,16 @@ env:
     USE_MAKE="NO" MAKE_TARGET=""
   - SDK=iphonesimulator DESTINATION='platform=iOS Simulator,OS=9.0,name=iPhone 6'
     USE_MAKE="NO" MAKE_TARGET=""
+
+    # - SDK=""
+  #   DESTINATION=""
+  #   USE_MAKE="YES"
+  #   MAKE_TARGET="carthage"
   - SDK="" DESTINATION="" USE_MAKE="YES" MAKE_TARGET="pod"
   - SDK="" DESTINATION="" USE_MAKE="YES" MAKE_TARGET="spm"
+  # appletvsimulator12.0
+  # watchsimulator5.0
+
 script:
 - set -o pipefail
 - xcodebuild -version
