@@ -10,6 +10,12 @@ import Foundation
 
 public struct Response<T> {
     public let data: T
-    public let request: URLRequest
-    public let response: HTTPURLResponse
+    public let request: URLRequest?
+    public let response: HTTPURLResponse?
+
+    public init(data: T, request: URLRequest? = nil, response: HTTPURLResponse?) {
+        self.data = data
+        self.request = request
+        self.response = response
+    }
 }
