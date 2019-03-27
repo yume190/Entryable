@@ -1,12 +1,12 @@
-.PHONY = podUpdate
+.PHONY: podUpdate
 podUpdate:
 	pod trunk push YumeAlamofire.podspec
 
-.PHONY = podLint
+.PHONY: podLint
 podLint:
 	pod lib lint YumeAlamofire.podspec --allow-warnings
 
-.PHONY = carthage
+.PHONY: carthage
 carthage: 
 	carthage build \
 		--no-skip-current \
@@ -16,10 +16,10 @@ carthage:
 	test -d Carthage/Build/iOS/YumeAlamofire.framework
 	test -d Carthage/Build/iOS/JSONMock.framework
 
-.PHONY = pod
+.PHONY: pod
 pod: podLint
 
-.PHONY = spm
+.PHONY: spm
 spm: 
 	swift test
 
