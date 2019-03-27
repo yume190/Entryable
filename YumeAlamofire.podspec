@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'YumeAlamofire'
-  s.version  = '4.2.7'
+  s.version  = '4.2.8'
   s.license  = 'MIT'
   s.summary  = "A Library combine network request and json decode in POP way"
   s.homepage = 'https://github.com/yume190/YumeAlamofire'
@@ -25,11 +25,28 @@ Pod::Spec.new do |s|
       'Sources/YumeAlamofire/Misc/*.swift'
     ]
       #"Sources/Moya/", "Sources/Moya/Plugins/"
-    s.dependency "Alamofire", "~> 4.7.3"
-    s.dependency "JSONDecodeKit", "~> 4.1.0"
-    s.dependency 'AwaitKit', '~> 5.0.1'
-    # s.dependency 'PromiseKit', '~> 6.5.2'
+    ss.dependency "Alamofire", "~> 4.8.0"
+    ss.dependency "JSONDecodeKit", "~> 4.1.0"
+    
     ss.framework  = "Foundation"
+  end
+
+  s.subspec "Rx" do |ss|
+    ss.source_files = [
+      'Sources/Rx/*.swift',
+    ]
+
+    ss.dependency 'RxSwift', '~> 4.4.0'
+    ss.dependency "YumeAlamofire/Core"
+  end
+
+  s.subspec "Await" do |ss|
+    ss.source_files = [
+      'Sources/Await/*.swift'
+    ]
+      
+    ss.dependency 'AwaitKit', '~> 5.0.1'
+    ss.dependency "YumeAlamofire/Core"
   end
 
   s.subspec "JSONMock" do |ss|

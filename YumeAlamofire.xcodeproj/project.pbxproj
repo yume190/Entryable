@@ -14,8 +14,6 @@
 		A82917F121E327740001D513 /* Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82917F021E327740001D513 /* Fake.swift */; };
 		A82B493F21BF823D0033253B /* JSONMock.h in Headers */ = {isa = PBXBuildFile; fileRef = A82B493D21BF823D0033253B /* JSONMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A82B494721BF857D0033253B /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; };
-		A82B494821BF857D0033253B /* AwaitKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD320C8DD1300F27CE5 /* AwaitKit.framework */; };
-		A82B494921BF857D0033253B /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */; };
 		A82B494A21BF85980033253B /* YumeAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */; };
 		A82B494E21BF86BC0033253B /* SwizzleURLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B494B21BF86BB0033253B /* SwizzleURLConfig.swift */; };
 		A82B494F21BF86BC0033253B /* Swizzlable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B494C21BF86BC0033253B /* Swizzlable.swift */; };
@@ -38,6 +36,8 @@
 		A83E4BD820C8DD3C00F27CE5 /* PromiseKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A83E4BDA20C8DD5C00F27CE5 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; };
 		A83E4BDB20C8DD6500F27CE5 /* JSONDecodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8B0E979224B26EF00B34753 /* Entryable+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0E978224B26EF00B34753 /* Entryable+Rx.swift */; };
+		A8B0E97B224B2A2200B34753 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B0E97A224B2A2200B34753 /* RxSwift.framework */; };
 		A8F40FE81FF3809B000F01E5 /* YumeAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +101,8 @@
 		A83E4BD320C8DD1300F27CE5 /* AwaitKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AwaitKit.framework; path = Carthage/Build/iOS/AwaitKit.framework; sourceTree = "<group>"; };
 		A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONDecodeKit.framework; path = Carthage/Build/iOS/JSONDecodeKit.framework; sourceTree = "<group>"; };
+		A8B0E978224B26EF00B34753 /* Entryable+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entryable+Rx.swift"; sourceTree = "<group>"; };
+		A8B0E97A224B2A2200B34753 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YumeAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YumeAlamofire.h; sourceTree = "<group>"; };
 		A8F40FE71FF3809B000F01E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,9 +135,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82B494721BF857D0033253B /* JSONDecodeKit.framework in Frameworks */,
-				A82B494821BF857D0033253B /* AwaitKit.framework in Frameworks */,
-				A82B494921BF857D0033253B /* PromiseKit.framework in Frameworks */,
 				A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */,
+				A8B0E97B224B2A2200B34753 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +156,8 @@
 		A8281FA420737C9B00725A91 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				A8B0E977224B26D000B34753 /* Rx */,
+				A8B0E976224B26A800B34753 /* Promise */,
 				A82B495421BF872E0033253B /* Entry */,
 				A82B495921BF872E0033253B /* Error */,
 				A82B495B21BF872E0033253B /* Misc */,
@@ -185,7 +188,6 @@
 				A82B495521BF872E0033253B /* Entryable.swift */,
 				A82B495621BF872E0033253B /* Entryable+JSONDecodeKit.swift */,
 				A82B495721BF872E0033253B /* Entryable+Codable.swift */,
-				A82B495821BF872E0033253B /* Entryable+Prmoise.swift */,
 			);
 			name = Entry;
 			path = Sources/YumeAlamofire/Entry;
@@ -204,11 +206,27 @@
 			isa = PBXGroup;
 			children = (
 				A82B495C21BF872E0033253B /* Codable+Ex.swift */,
-				A82B495D21BF872E0033253B /* Promise+Await.swift */,
 			);
 			name = Misc;
 			path = Sources/YumeAlamofire/Misc;
 			sourceTree = SOURCE_ROOT;
+		};
+		A8B0E976224B26A800B34753 /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				A82B495821BF872E0033253B /* Entryable+Prmoise.swift */,
+				A82B495D21BF872E0033253B /* Promise+Await.swift */,
+			);
+			path = Promise;
+			sourceTree = "<group>";
+		};
+		A8B0E977224B26D000B34753 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				A8B0E978224B26EF00B34753 /* Entryable+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
 		};
 		A8F40FC11FF38068000F01E5 = {
 			isa = PBXGroup;
@@ -244,6 +262,7 @@
 		A8F40FF71FF38558000F01E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8B0E97A224B2A2200B34753 /* RxSwift.framework */,
 				A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */,
 				A83E4BD320C8DD1300F27CE5 /* AwaitKit.framework */,
 				A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */,
@@ -430,13 +449,14 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JSONDecodeKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 			);
 			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -473,6 +493,7 @@
 				A82B496721BF872E0033253B /* NetError.swift in Sources */,
 				A82B496B21BF872E0033253B /* ParameterType.swift in Sources */,
 				A82B496521BF872E0033253B /* Entryable+Codable.swift in Sources */,
+				A8B0E979224B26EF00B34753 /* Entryable+Rx.swift in Sources */,
 				A82B496621BF872E0033253B /* Entryable+Prmoise.swift in Sources */,
 				A82B496A21BF872E0033253B /* Response.swift in Sources */,
 				A82B496821BF872E0033253B /* Codable+Ex.swift in Sources */,

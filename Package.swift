@@ -7,16 +7,19 @@ let package = Package(
     name: "YumeAlamofire",
     products: [
         .library(name: "YumeAlamofire", type: .static, targets: ["YumeAlamofire"]),
+        .library(name: "RxYumeAlamofire", type: .static, targets: ["Rx"]),
+        .library(name: "AwaitYumeAlamofire", type: .static, targets: ["Await"]),
         .library(name: "JSONMock", type: .static, targets: ["JSONMock"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.7.3"),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.8.0"),
         .package(url: "https://github.com/yume190/JSONDecodeKit.git", from: "4.1.0"),
         .package(url: "https://github.com/yannickl/AwaitKit.git", from: "5.0.1"),
-        .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.5.2")
+        .package(url: "https://github.com/ReactiveX/RxSwift", from: "4.4.0")
+        
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -34,6 +37,21 @@ let package = Package(
             name: "JSONMock",
             dependencies: [
                 "YumeAlamofire",
+            ]
+        ),
+
+        .target(
+            name: "Rx",
+            dependencies: [
+                "YumeAlamofire",
+                "RxSwift"
+            ]
+        ),
+        .target(
+            name: "Await",
+            dependencies: [
+                "YumeAlamofire",
+                "AwaitKit"
             ]
         ),
         .testTarget(
