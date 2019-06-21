@@ -137,3 +137,5 @@ fastlane/screenshots
 /*.gcno
 
 # End of https://www.gitignore.io/api/macos,xcode,swift,carthage,fastlane,cocoapods
+
+.build/

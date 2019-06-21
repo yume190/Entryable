@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   # s.tvos.deployment_target = '9.0'
   # s.watchos.deployment_target = '2.0'
   s.default_subspec = "Core"
-  s.swift_version = '4.2'
-  s.static_framework = true
+  s.swift_version = '5.0'
+  # s.static_framework = true
 
   s.subspec "Core" do |ss|
     ss.source_files = [
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
     ]
       #"Sources/Moya/", "Sources/Moya/Plugins/"
     ss.dependency "Alamofire", "~> 4.8.0"
-    ss.dependency "JSONDecodeKit", "~> 4.1.0"
+    ss.dependency "JSONDecodeKit", "~> 5.0"
     
     ss.framework  = "Foundation"
   end

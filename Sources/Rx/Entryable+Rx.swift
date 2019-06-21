@@ -5,19 +5,19 @@ import protocol RxSwift.Disposable
 import Alamofire
 
 extension Entryable {
-    var rxData: Observable<Response<Data>> {
+    public var rxData: Observable<Response<Data>> {
         return Observable.create { observer -> Disposable in
             self.dataRequest
                 .validate()
                 .responseData { (res) in
-                    
+
                 switch res.result {
                 case .success:
                     guard let data = res.data else {
                         observer.onError(res.error ?? NetError.unknown)
                         return
                     }
-                    
+
                     let result = Response<Data>(
                         data: data,
                         request: res.request!,
@@ -28,7 +28,7 @@ extension Entryable {
                     observer.onError(error)
                 }
             }
-            
+
             return Disposables.create {
                 self.dataRequest.cancel()
             }
