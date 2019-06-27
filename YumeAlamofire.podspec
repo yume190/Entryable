@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'YumeAlamofire'
-  s.version  = '5.0.1'
+  s.version  = '5.0.2'
   s.license  = 'MIT'
   s.summary  = "A Library combine network request and json decode in POP way"
   s.homepage = 'https://github.com/yume190/YumeAlamofire'

@@ -11,7 +11,6 @@
 		A8051EC9200718520010EEE7 /* YumeAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */; };
 		A8051ED22007190B0010EEE7 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
-		A82917F121E327740001D513 /* Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82917F021E327740001D513 /* Fake.swift */; };
 		A82B493F21BF823D0033253B /* JSONMock.h in Headers */ = {isa = PBXBuildFile; fileRef = A82B493D21BF823D0033253B /* JSONMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A82B494721BF857D0033253B /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; };
 		A82B494A21BF85980033253B /* YumeAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */; };
@@ -34,6 +33,7 @@
 		A83E4BD820C8DD3C00F27CE5 /* PromiseKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A83E4BDA20C8DD5C00F27CE5 /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; };
 		A83E4BDB20C8DD6500F27CE5 /* JSONDecodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8ADE5C922C4739B005357DF /* Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADE5C822C4739B005357DF /* Fake.swift */; };
 		A8B0E97B224B2A2200B34753 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B0E97A224B2A2200B34753 /* RxSwift.framework */; };
 		A8B0E97E224B3E8200B34753 /* Rx in Resources */ = {isa = PBXBuildFile; fileRef = A8B0E97C224B3E8200B34753 /* Rx */; };
 		A8B0E97F224B3E8200B34753 /* Await in Resources */ = {isa = PBXBuildFile; fileRef = A8B0E97D224B3E8200B34753 /* Await */; };
@@ -78,7 +78,6 @@
 		A8051EC4200718510010EEE7 /* YumeAlamofireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YumeAlamofireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8051EC6200718520010EEE7 /* YumeAlamofireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumeAlamofireTests.swift; sourceTree = "<group>"; };
 		A8051EC8200718520010EEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A82917F021E327740001D513 /* Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fake.swift; sourceTree = "<group>"; };
 		A82B493B21BF823C0033253B /* JSONMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSONMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82B493D21BF823D0033253B /* JSONMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONMock.h; sourceTree = "<group>"; };
 		A82B493E21BF823D0033253B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		A83E4BD420C8DD1300F27CE5 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONDecodeKit.framework; path = Carthage/Build/iOS/JSONDecodeKit.framework; sourceTree = "<group>"; };
 		A877868C22BC7B6C00771158 /* YumeAlamofire.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = YumeAlamofire.podspec; sourceTree = "<group>"; };
+		A8ADE5C822C4739B005357DF /* Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fake.swift; path = Sources/JSONMock/Fake.swift; sourceTree = SOURCE_ROOT; };
 		A8B0E97A224B2A2200B34753 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		A8B0E97C224B3E8200B34753 /* Rx */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Rx; path = Sources/Rx; sourceTree = SOURCE_ROOT; };
 		A8B0E97D224B3E8200B34753 /* Await */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Await; path = Sources/Await; sourceTree = SOURCE_ROOT; };
@@ -170,7 +170,7 @@
 		A82B493C21BF823D0033253B /* JSONMock */ = {
 			isa = PBXGroup;
 			children = (
-				A82917F021E327740001D513 /* Fake.swift */,
+				A8ADE5C822C4739B005357DF /* Fake.swift */,
 				A82B494D21BF86BC0033253B /* Mock+JSON.swift */,
 				A82B496E21BF87950033253B /* Encodable+Ex.swift */,
 				A82B494C21BF86BC0033253B /* Swizzlable.swift */,
@@ -460,7 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82B495021BF86BC0033253B /* Mock+JSON.swift in Sources */,
-				A82917F121E327740001D513 /* Fake.swift in Sources */,
+				A8ADE5C922C4739B005357DF /* Fake.swift in Sources */,
 				A82B494F21BF86BC0033253B /* Swizzlable.swift in Sources */,
 				A82B496F21BF87950033253B /* Encodable+Ex.swift in Sources */,
 				A82B494E21BF86BC0033253B /* SwizzleURLConfig.swift in Sources */,
