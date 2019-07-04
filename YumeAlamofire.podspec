@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'YumeAlamofire'
-  s.version  = '5.0.2'
+  s.version  = '5.0.3'
   s.license  = 'MIT'
   s.summary  = "A Library combine network request and json decode in POP way"
   s.homepage = 'https://github.com/yume190/YumeAlamofire'
@@ -36,16 +36,7 @@ Pod::Spec.new do |s|
       'Sources/Rx/*.swift',
     ]
 
-    ss.dependency 'RxSwift', '~> 4.4.0'
-    ss.dependency "YumeAlamofire/Core"
-  end
-
-  s.subspec "Await" do |ss|
-    ss.source_files = [
-      'Sources/Await/*.swift'
-    ]
-      
-    ss.dependency 'AwaitKit', '~> 5.0.1'
+    ss.dependency 'RxSwift'
     ss.dependency "YumeAlamofire/Core"
   end
 

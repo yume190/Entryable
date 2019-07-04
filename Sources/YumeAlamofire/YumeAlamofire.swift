@@ -11,7 +11,9 @@ import struct JSONDecodeKit.JSON
 import struct Alamofire.DefaultDataResponse
 
 internal func guardData(res: DefaultDataResponse) -> (response: HTTPURLResponse, data: Data)? {
-    guard let response = res.response, let data = res.data else {
+    guard
+        let response: HTTPURLResponse = res.response,
+        let data: Data = res.data else {
         print("API (\(res.request?.url?.absoluteString ?? "")): No Response.")
         return nil
     }
@@ -25,14 +27,14 @@ extension YumeAlamofire {
     public typealias DebugInfoFunction = (_ data: Data?) -> Swift.Void
     public static func emptyDebugInfo(data: Data?) {}
     public static func basicDebugInfo(data: Data?) {
-        guard let data = data else { return }
+        guard let data: Data = data else { return }
         print("The error response : \(String.init(data: data, encoding: .utf8) ?? "")")
     }
 }
 
 extension YumeAlamofire {
     internal static func parseErrorHandle<OutputType>(type: OutputType.Type, url: URL?, error: Error) {
-        let parseError = [
+        let parseError: String = [
             "API Data Parse Error.",
             "Type : \(OutputType.self)",
             "Url : \(url?.path ?? "")"

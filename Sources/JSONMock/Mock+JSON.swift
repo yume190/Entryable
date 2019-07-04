@@ -27,9 +27,9 @@ public class JSONMock: URLProtocol {
     }
 
     var urlPath: String? {
-        guard let url = request.url else { return nil }
-        guard let scheme = url.scheme else { return nil }
-        guard let host = url.host else { return nil }
+        guard let url: URL = request.url else { return nil }
+        guard let scheme: String = url.scheme else { return nil }
+        guard let host: String = url.host else { return nil }
         let port: String
         if let portString = url.port.map(String.init) {
             port = ":" + portString
@@ -41,8 +41,8 @@ public class JSONMock: URLProtocol {
     }
 
     var fake: Fake? {
-        guard let urlPath = urlPath else { return nil }
-        guard let fake = JSONMock.fakes[urlPath] else { return nil }
+        guard let urlPath: String = urlPath else { return nil }
+        guard let fake: Fake = JSONMock.fakes[urlPath] else { return nil }
         return fake
     }
 

@@ -14,10 +14,10 @@ public enum Fake {
     case request((_ request: URLRequest) -> (URLResponse, Data))
     
     func get(request: URLRequest) -> (response: URLResponse, data: Data)? {
-        guard let url = request.url else { return nil }
+        guard let url: URL = request.url else { return nil }
         switch self {
         case let .data(data, code, header):
-            guard let res = HTTPURLResponse(
+            guard let res: HTTPURLResponse = HTTPURLResponse(
                 url: url,
                 statusCode: code,
                 httpVersion: kCFHTTPVersion1_1 as String,
@@ -25,8 +25,8 @@ public enum Fake {
                 ) else { return nil }
             return (res, data)
         case let .json(json, code, header):
-            guard let data = try? json.encode() else { return nil }
-            guard let res = HTTPURLResponse(
+            guard let data: Data = try? json.encode() else { return nil }
+            guard let res: HTTPURLResponse = HTTPURLResponse(
                 url: url,
                 statusCode: code,
                 httpVersion: kCFHTTPVersion1_1 as String,
