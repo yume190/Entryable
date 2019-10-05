@@ -12,7 +12,6 @@
 		A8051ED22007190B0010EEE7 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8051ED42007194E0010EEE7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
 		A82B493F21BF823D0033253B /* JSONMock.h in Headers */ = {isa = PBXBuildFile; fileRef = A82B493D21BF823D0033253B /* JSONMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A82B494721BF857D0033253B /* JSONDecodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; };
 		A82B494A21BF85980033253B /* YumeAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FE41FF3809B000F01E5 /* YumeAlamofire.framework */; };
 		A82B494E21BF86BC0033253B /* SwizzleURLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B494B21BF86BB0033253B /* SwizzleURLConfig.swift */; };
 		A82B494F21BF86BC0033253B /* Swizzlable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B494C21BF86BC0033253B /* Swizzlable.swift */; };
@@ -35,9 +34,7 @@
 		A83E4BDB20C8DD6500F27CE5 /* JSONDecodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A83E4BD920C8DD5C00F27CE5 /* JSONDecodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A88D29B022CE06920050F43B /* Entryable+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88D29AF22CE06920050F43B /* Entryable+Rx.swift */; };
 		A8ADE5C922C4739B005357DF /* Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADE5C822C4739B005357DF /* Fake.swift */; };
-		A8B0E97B224B2A2200B34753 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B0E97A224B2A2200B34753 /* RxSwift.framework */; };
 		A8F40FE81FF3809B000F01E5 /* YumeAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = A8F40FE61FF3809B000F01E5 /* YumeAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F40FF91FF38558000F01E5 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,9 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A82B494721BF857D0033253B /* JSONDecodeKit.framework in Frameworks */,
-				A8F40FFB1FF38558000F01E5 /* Alamofire.framework in Frameworks */,
-				A8B0E97B224B2A2200B34753 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +322,6 @@
 				A8F40FE01FF3809B000F01E5 /* Frameworks */,
 				A8F40FE11FF3809B000F01E5 /* Headers */,
 				A8F40FE21FF3809B000F01E5 /* Resources */,
-				A8F40FF61FF38502000F01E5 /* Carthage */,
 				A83EAF7621C781360016FADE /* Lint */,
 			);
 			buildRules = (
@@ -429,23 +422,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		A8F40FF61FF38502000F01E5 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JSONDecodeKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-			);
-			name = Carthage;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -565,6 +541,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 5.0.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.JSONMock;
@@ -597,6 +574,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 5.0.6;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.JSONMock;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -741,6 +719,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 5.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.YumeAlamofire;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -774,6 +753,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 5.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.YumeAlamofire;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
