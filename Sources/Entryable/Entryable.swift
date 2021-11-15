@@ -15,9 +15,9 @@ import protocol Alamofire.URLConvertible
 
 public protocol Entryable {
     associatedtype ResponseType
-
-    typealias Parameters = [String: Any] // Encodable?
-    typealias Headers = [String: String]//Alamofire.HTTPHeaders
+    
+    associatedtype Parameters
+    typealias Headers = [String: String]
 
     var url: URLConvertible { get }
 
@@ -32,6 +32,8 @@ public protocol Entryable {
     var parameters: Parameters? { get }
 
     var parameterType: ParameterType { get }
+    
+    var dataRequest: Alamofire.DataRequest { get }
 }
 
 extension Entryable {
@@ -40,8 +42,10 @@ extension Entryable {
     public var parameterType: ParameterType { return .url }
 }
 
-// where Self.Parameters == [String: Any]
-extension Entryable {
+public protocol DictionaryEntryable: Entryable where Parameters == [String : Any] {}
+public protocol EncodeEntryable: Entryable where Parameters: Encodable {}
+
+extension DictionaryEntryable {
     public var dataRequest: Alamofire.DataRequest {
         return session.request(
             self.url,
@@ -53,14 +57,14 @@ extension Entryable {
     }
 }
 
-//extension Entryable where Self.Parameters: Encodable {
-//    public var dataRequest: Alamofire.DataRequest {
-//        return session.request(
-//            self.url,
-//            method: self.method,
-//            parameters: self.parameters,
-//            encoder: self.parameterType.encoder,
-//            headers: HTTPHeaders(self.headers)
-//        )
-//    }
-//}
+extension EncodeEntryable {
+    public var dataRequest: Alamofire.DataRequest {
+        return session.request(
+            self.url,
+            method: self.method,
+            parameters: self.parameters,
+            encoder: self.parameterType.encoder,
+            headers: HTTPHeaders(self.headers)
+        )
+    }
+}

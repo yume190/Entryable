@@ -7,9 +7,6 @@
 //
 
 import Foundation
-//#if !COCOAPODS
-//import enum YumeAlamofire.NetError
-//#endif
 
 enum MockError: Error {
     case unknown
