@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Decodable {
+public extension Decodable {
     static func decode(data: Data, decoder: JSONDecoder = JSONDecoder()) throws -> Self {
         return try Self.decodeGeneric(data: data, decoder: decoder)
     }
@@ -18,7 +18,7 @@ extension Decodable {
     }
 }
 
-extension Encodable {
+public extension Encodable {
     static func encode<T: Encodable>(data: T, encoder: JSONEncoder = JSONEncoder()) throws -> Data {
         return try encoder.encode(data)
     }

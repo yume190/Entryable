@@ -1,71 +1,71 @@
-// swift-tools-version:4.1
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-    name: "YumeAlamofire",
+    name: "Entryable",
+    platforms: [
+        .macOS(.v10_12),
+        .iOS(.v10),
+        .tvOS(.v10),
+        .watchOS(.v3)
+    ],
     products: [
-        .library(name: "YumeAlamofire", type: .static, targets: ["YumeAlamofire"]),
-        .library(name: "RxYumeAlamofire", type: .static, targets: ["Rx"]),
-        .library(name: "AwaitYumeAlamofire", type: .static, targets: ["Await"]),
-        .library(name: "JSONMock", type: .static, targets: ["JSONMock"]),
+        .library(name: "Entryable", type: .static, targets: ["Entryable"]),
+        .library(name: "RxEntryable", type: .static, targets: ["RxEntryable"]),
+        //        .library(name: "RxYumeAlamofire", type: .static, targets: ["Rx"]),
+        //        .library(name: "AwaitYumeAlamofire", type: .static, targets: ["Await"]),
+        //        .library(name: "JSONMock", type: .static, targets: ["JSONMock"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.8.0"),
-        .package(url: "https://github.com/yume190/JSONDecodeKit.git", from: "4.1.0"),
-        .package(url: "https://github.com/yannickl/AwaitKit.git", from: "5.0.1"),
-        .package(url: "https://github.com/ReactiveX/RxSwift", from: "4.4.0")
+        // 5.4.4
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.4.4"),
+        //        .package(url: "https://github.com/yume190/JSONDecodeKit.git", from: "4.1.0"),
+        .package(url: "https://github.com/yannickl/AwaitKit.git", from: "5.2.0"),
+        // 6.2.0
+        .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.2.0")
         
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: "YumeAlamofire",
+            name: "Entryable",
             dependencies: [
                 "Alamofire",
-                "JSONDecodeKit",
-                "AwaitKit",
-                "PromiseKit"
+                
             ]
         ),
         .target(
             name: "JSONMock",
             dependencies: [
-                "YumeAlamofire",
-            ]
-        ),
-
-        .target(
-            name: "Rx",
-            dependencies: [
-                "YumeAlamofire",
-                "RxSwift"
+                "Entryable",
             ]
         ),
         .target(
-            name: "Await",
+            name: "RxEntryable",
             dependencies: [
-                "YumeAlamofire",
-                "AwaitKit"
+                "Entryable",
+                "Alamofire",
+                "RxSwift",
             ]
         ),
         .testTarget(
-            name: "YumeAlamofireTests",
+            name: "EntryableTests",
             dependencies: [
-                "YumeAlamofire",
+                "Entryable",
+                "RxEntryable",
                 "JSONMock",
                 
                 "Alamofire",
-                "JSONDecodeKit",
-                "AwaitKit",
-                "PromiseKit"
-            ],
-            path: "YumeAlamofireTests"
+                "RxSwift",
+                .product(name: "RxRelay", package: "RxSwift")
+            ]
+            //                    path: "YumeAlamofireTests"
         ),
     ]
 )

@@ -7,9 +7,13 @@
 //
 
 import Foundation
-#if !COCOAPODS
-import enum YumeAlamofire.NetError
-#endif
+//#if !COCOAPODS
+//import enum YumeAlamofire.NetError
+//#endif
+
+enum MockError: Error {
+    case unknown
+}
 
 public class JSONMock: URLProtocol {
 
@@ -48,7 +52,7 @@ public class JSONMock: URLProtocol {
 
     override public func startLoading() {
         guard let fakes = self.fake?.get(request: self.request) else {
-            client?.urlProtocol(self, didFailWithError: NetError.unknown)
+            client?.urlProtocol(self, didFailWithError: MockError.unknown)
             return
         }
 

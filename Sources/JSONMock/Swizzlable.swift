@@ -11,7 +11,7 @@ import Foundation
 // http://blog.yaoli.site/post/如何优雅地在Swift4中实现Method-Swizzling
 // http://jordansmith.io/handling-the-deprecation-of-initialize/
 
-public protocol Swizzlable: class {
+public protocol Swizzlable: AnyObject {
     static func swizzle()
 }
 
