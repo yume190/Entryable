@@ -27,7 +27,19 @@ public struct Response<T> {
         )
     }
     
+    public func mapData<U>(keyPath: KeyPath<T, U>) -> Response<U> {
+        return Response<U>(
+            data: self.data[keyPath: keyPath],
+            request: request,
+            response: response
+        )
+    }
+    
     public func map<U>(transform: (Response<T>) throws -> U) rethrows -> U {
         return try transform(self)
+    }
+    
+    public func map<U>(keyPath: KeyPath<Response<T>, U>) -> U {
+        return self[keyPath: keyPath]
     }
 }

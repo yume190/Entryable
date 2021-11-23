@@ -8,7 +8,7 @@
 import Foundation
 
 @available(macOS 12.0, iOS 15.0, watchOS 8.0, tvOS 15.0, *)
-extension Entryable where ResponseType: Codable {
+extension Entryable {
     func fetchData() async throws -> Response<Data> {
         return try await withCheckedThrowingContinuation { continuation in
             self.dataRequest.validate().responseData { (res) in
@@ -19,11 +19,14 @@ extension Entryable where ResponseType: Codable {
             }
         }
     }
-    
-    func fetch() async throws -> Response<ResponseType> {
+}
+
+@available(macOS 12.0, iOS 15.0, watchOS 8.0, tvOS 15.0, *)
+extension Entryable where ResponseType: Codable {
+    func fetch(decoder: JSONDecoder = JSONDecoder()) async throws -> Response<ResponseType> {
         return try await self.fetchData()
             .mapData{ data in
-                return try ResponseType.decode(data: data)
+                return try ResponseType.decode(data: data, decoder: decoder)
             }
     }
 }
