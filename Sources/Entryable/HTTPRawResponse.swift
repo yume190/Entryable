@@ -1,5 +1,5 @@
 //
-//  Response.swift
+//  HTTPRawResponse.swift
 //  YumeAlamofire
 //
 //  Created by Yume on 2018/12/10.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Response<T> {
+public struct HTTPRawResponse<T> {
     public let data: T
     public let request: URLRequest?
     public let response: HTTPURLResponse?
@@ -19,27 +19,27 @@ public struct Response<T> {
         self.response = response
     }
     
-    public func mapData<U>(transform: (T) throws -> U) rethrows -> Response<U> {
-        return try Response<U>(
+    public func mapData<U>(transform: (T) throws -> U) rethrows -> HTTPRawResponse<U> {
+        return try HTTPRawResponse<U>(
             data: transform(data),
             request: request,
             response: response
         )
     }
     
-    public func mapData<U>(keyPath: KeyPath<T, U>) -> Response<U> {
-        return Response<U>(
+    public func mapData<U>(keyPath: KeyPath<T, U>) -> HTTPRawResponse<U> {
+        return HTTPRawResponse<U>(
             data: self.data[keyPath: keyPath],
             request: request,
             response: response
         )
     }
     
-    public func map<U>(transform: (Response<T>) throws -> U) rethrows -> U {
+    public func map<U>(transform: (HTTPRawResponse<T>) throws -> U) rethrows -> U {
         return try transform(self)
     }
     
-    public func map<U>(keyPath: KeyPath<Response<T>, U>) -> U {
+    public func map<U>(keyPath: KeyPath<HTTPRawResponse<T>, U>) -> U {
         return self[keyPath: keyPath]
     }
 }

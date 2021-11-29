@@ -54,7 +54,7 @@ class YumeAlamofireTests: XCTestCase {
             fake: .json(json: fakeRes, code: 201, header: [:])
         )
         
-        let res: Response<Entry.A.Response> = try await Entry.A(key: "").fetch()
+        let res: HTTPRawResponse<Entry.A.Response> = try await Entry.A(key: "").fetch()
         print(res.data)
         XCTAssertEqual(res.data, fakeRes)
         XCTAssertEqual(res.response?.statusCode, 201)
@@ -67,7 +67,7 @@ class YumeAlamofireTests: XCTestCase {
             url: Entry.A(key: "").url.asURL().absoluteString,
             fake: .json(json: fakeRes, code: 202, header: ["a":"b"])
         )
-        Entry.A(key: "").rx.subscribe(onSuccess: { (res: Response<Entry.A.Response>) in
+        Entry.A(key: "").rx.subscribe(onSuccess: { (res: HTTPRawResponse<Entry.A.Response>) in
             XCTAssertEqual(res.data, fakeRes)
             XCTAssertEqual(res.response?.statusCode, 202)
             XCTAssertEqual(res.response?.headers.dictionary, ["a":"b"])

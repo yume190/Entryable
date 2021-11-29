@@ -6,17 +6,17 @@ import struct RxSwift.Single
 import protocol RxSwift.Disposable
 
 import protocol Entryable.Entryable
-import struct Entryable.Response
+import struct Entryable.HTTPRawResponse
 
 private let concurrentQueue = DispatchQueue(label: "RxEntryable", attributes: .concurrent)
 extension Entryable {
-    public var rxData: Single<Response<Data>> {
+    public var rxData: Single<HTTPRawResponse<Data>> {
         return Single.create { observer -> Disposable in
 //            self.dataRequest.validate().responseData(queue: concurrentQueue) { (res) in
             self.dataRequest.validate().responseData { (res) in
 
-                let result: Result<Response<Data>, Error> = res.result.map { data in
-                    return Response(data: data, request: res.request, response: res.response)
+                let result: Result<HTTPRawResponse<Data>, Error> = res.result.map { data in
+                    return HTTPRawResponse(data: data, request: res.request, response: res.response)
                 }.mapError { error -> Error in
                     return error
                 }
@@ -34,9 +34,9 @@ extension Entryable {
 }
 
 extension Entryable where ResponseType: Codable {
-    public var rx: Single<Response<ResponseType>> {
-        return rxData.map { (response) throws -> Response<ResponseType> in
-            return try response.mapData{ data in
+    public var rx: Single<HTTPRawResponse<ResponseType>> {
+        return rxData.map { (response) throws -> HTTPRawResponse<ResponseType> in
+            return try response.mapData { data in
                 return try ResponseType.decode(data: data)
             }
         }
