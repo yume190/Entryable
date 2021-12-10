@@ -8,12 +8,10 @@ import protocol RxSwift.Disposable
 import protocol Entryable.Entryable
 import struct Entryable.HTTPRawResponse
 
-private let concurrentQueue = DispatchQueue(label: "RxEntryable", attributes: .concurrent)
 extension Entryable {
     public var rxData: Single<HTTPRawResponse<Data>> {
         return Single.create { observer -> Disposable in
-//            self.dataRequest.validate().responseData(queue: concurrentQueue) { (res) in
-            self.dataRequest.validate().responseData { (res) in
+            self.dataRequest.responseData { (res) in
 
                 let result: Result<HTTPRawResponse<Data>, Error> = res.result.map { data in
                     return HTTPRawResponse(data: data, request: res.request, response: res.response)
