@@ -6,6 +6,7 @@ import struct RxSwift.Single
 import protocol RxSwift.Disposable
 
 import protocol Entryable.Entryable
+import enum Entryable.NetError
 import struct Entryable.HTTPRawResponse
 
 extension Entryable {
@@ -35,7 +36,11 @@ extension Entryable where ResponseType: Codable {
     public var rx: Single<HTTPRawResponse<ResponseType>> {
         return rxData.map { (response) throws -> HTTPRawResponse<ResponseType> in
             return try response.mapData { data in
-                return try ResponseType.decode(data: data)
+                do {
+                    return try ResponseType.decode(data: data)
+                } catch {
+                    throw NetError.url(try? url.asURL(), data, error)
+                }
             }
         }
     }
