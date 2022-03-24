@@ -10,45 +10,31 @@ import Foundation
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension Entryable {
     public func fetchData() async throws -> HTTPRawResponse<Data> {
-        return try await withCheckedThrowingContinuation { continuation in
-            self.dataRequest.validate().responseData { (res) in
-                let result = res.result.map { data in
-                    return HTTPRawResponse(data: data, request: res.request, response: res.response)
+        let request = self.dataRequest
+        
+        return try await withTaskCancellationHandler {
+            return try await withCheckedThrowingContinuation { continuation in
+                request.validate().responseData { (res) in
+                    let result = res.result.map { data in
+                        return HTTPRawResponse(data: data, request: res.request, response: res.response)
+                    }
+                    continuation.resume(with: result)
                 }
-                continuation.resume(with: result)
             }
+        } onCancel: {
+            request.cancel()
         }
     }
     
-    public var taskData: Task<HTTPRawResponse<Data>, Error> {
-        return Task {
-            return try await self.fetchData()
-        }
-    }
-    
-    public var resultData: Result<HTTPRawResponse<Data>, Error> {
-        get async {
-             await self.taskData.result
-        }
-    }
-    
-    public var valueData: HTTPRawResponse<Data> {
+    public var rawData: HTTPRawResponse<Data> {
         get async throws {
-             try await self.taskData.value
+            try await self.fetchData()
         }
     }
     
-    func test() async {
-        
-//        withThrowingTaskGroup(of: Void.self) { group in
-//            group.addTask(priority: .high, operation: <#T##() async throws -> Void#>)
-//        }
-        
-        do {
-            let v: HTTPRawResponse<Data> = try await self.valueData
-            print(v)
-        } catch {
-            print(error)
+    public var data: Data {
+        get async throws {
+            try await self.rawData.data
         }
     }
 }
@@ -62,21 +48,15 @@ extension Entryable where ResponseType: Codable {
             }
     }
     
-    public var task: Task<HTTPRawResponse<ResponseType>, Error> {
-        return Task {
-            return try await self.fetch()
-        }
-    }
-    
-    public var result: Result<HTTPRawResponse<ResponseType>, Error> {
-        get async {
-             await self.task.result
-        }
-    }
-    
-    public var value: HTTPRawResponse<ResponseType> {
+    public var rawValue: HTTPRawResponse<ResponseType> {
         get async throws {
-             try await self.task.value
+            try await self.fetch()
+        }
+    }
+    
+    public var value: ResponseType {
+        get async throws {
+            try await self.rawValue.data
         }
     }
 }
