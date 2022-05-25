@@ -41,3 +41,9 @@ extension Entryable {
 
 public protocol DictionaryEntryable: Entryable where Parameters == [String : Any] {}
 public protocol EncodeEntryable: Entryable where Parameters: Encodable {}
+
+extension Entryable {
+    public func client(_ client: Client) -> ClientBuilder<Self> {
+        return client.builder(self)
+    }
+}
