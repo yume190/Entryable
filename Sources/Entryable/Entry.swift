@@ -1,10 +1,31 @@
 import Foundation
 import class Alamofire.DataRequest
+import protocol Alamofire.DataPreprocessor
+import class Alamofire.DataResponseSerializer
+import struct Alamofire.HTTPMethod
 
 public struct Entry<ResponseType> {
     public let request: Alamofire.DataRequest
+    public var queue: DispatchQueue = .main
+    public var dataPreprocessor: DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor
+    public var emptyResponseCodes: Set<Int> = DataResponseSerializer.defaultEmptyResponseCodes
+    public var emptyRequestMethods: Set<HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods
     public init(_ request: Alamofire.DataRequest) {
         self.request = request
+    }
+    
+    public func change(
+        queue: DispatchQueue? = nil,
+        dataPreprocessor: DataPreprocessor? = nil,
+        emptyResponseCodes: Set<Int>? = nil,
+        emptyRequestMethods: Set<HTTPMethod>? = nil
+    ) -> Entry<ResponseType> {
+        var copy = Entry<ResponseType>(self.request)
+        copy.queue = queue ?? self.queue
+        copy.dataPreprocessor = dataPreprocessor ?? self.dataPreprocessor
+        copy.emptyResponseCodes = emptyResponseCodes ?? self.emptyResponseCodes
+        copy.emptyRequestMethods = emptyRequestMethods ?? self.emptyRequestMethods
+        return copy
     }
 }
 
@@ -46,16 +67,12 @@ extension Entry {
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension Entry where ResponseType: Codable {
     public func fetchRawResponse(decoder: JSONDecoder = JSONDecoder()) async throws -> HTTPRawResponse<ResponseType> {
-        return try await self.fetchRawResponseData()
-            .mapData{ data in
+        let raw = try await self.fetchRawResponseData()
+        return try raw.mapData{ data in
                 do {
                     return try ResponseType.decode(data: data, decoder: decoder)
                 } catch {
-                    throw NetError.url(
-                        try? self.request.convertible.asURLRequest().url,
-                        data,
-                        error
-                    )
+                    throw NetError.url(raw, error)
                 }
             }
     }

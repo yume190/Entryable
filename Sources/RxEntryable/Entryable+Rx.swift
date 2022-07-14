@@ -13,7 +13,7 @@ extension Entry {
     public var rxData: Single<HTTPRawResponse<Data>> {
         let request = self.request
         return Single.create { observer -> Disposable in
-            request.responseData { (res) in
+            request.responseData(queue: queue, dataPreprocessor: dataPreprocessor, emptyResponseCodes: emptyResponseCodes, emptyRequestMethods: emptyRequestMethods) { (res) in
 
                 let result: Result<HTTPRawResponse<Data>, Error> = res.result.map { data in
                     return HTTPRawResponse(data: data, request: res.request, response: res.response)
@@ -35,16 +35,12 @@ extension Entry {
 
 extension Entry where ResponseType: Codable {
     public var rx: Single<HTTPRawResponse<ResponseType>> {
-        return rxData.map { (response) throws -> HTTPRawResponse<ResponseType> in
-            return try response.mapData { data in
+        return rxData.map { (raw) throws -> HTTPRawResponse<ResponseType> in
+            return try raw.mapData { data in
                 do {
                     return try ResponseType.decode(data: data)
                 } catch {
-                    throw NetError.url(
-                        try? self.request.convertible.asURLRequest().url,
-                        data,
-                        error
-                    )
+                    throw NetError.url(raw, error)
                 }
             }
         }

@@ -8,18 +8,28 @@
 import Foundation
 
 public enum NetError: Error, CustomStringConvertible {
-    case url(URL?, Data, Error)
+    case url(HTTPRawResponse<Data>, Error)
+    
     public var description: String {
         switch self {
-        case let .url(url, data, error): return """
+        case let .url(raw, error): return """
         [NET ERROR]
-        URL:
-        \(url ?? URL(fileURLWithPath: ""))
-        Data:
-        \(String.init(data: data, encoding: .utf8) ?? "")
-        Error:
-        \(error)
+        request:
+            url: \(raw.request?.url?.description ?? "")
+            method: \(raw.request?.method?.rawValue ?? "")
+            header: \(raw.request?.headers.description ?? "")
+            body: \(raw.request?.httpBody?.utf8 ?? "")
+        response:
+            header: \(raw.response?.headers.description ?? "")
+            body: \(raw.data.utf8 ?? "")
+        error: \(error)
         """
         }
+    }
+}
+
+extension Data {
+    var utf8: String? {
+        return String(data: self, encoding: .utf8)
     }
 }

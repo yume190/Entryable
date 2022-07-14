@@ -24,9 +24,6 @@ let package = Package(
         
         // 5.4.4
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.4.4"),
-        //        .package(url: "https://github.com/yume190/JSONDecodeKit.git", from: "4.1.0"),
-        .package(url: "https://github.com/yannickl/AwaitKit.git", from: "5.2.0"),
-        // 6.2.0
         .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.2.0")
         
     ],
