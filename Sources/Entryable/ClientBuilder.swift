@@ -34,7 +34,7 @@ public struct ClientBuilder<Request: Entryable> {
 }
 
 extension ClientBuilder where Request: Entryable {
-    private func _build() -> Alamofire.DataRequest {
+    internal func build() -> Alamofire.DataRequest {
         return client.session.request(
             self.client.base.appendingPathComponent(self.request.entry),
             method: self.request.method,
@@ -45,13 +45,13 @@ extension ClientBuilder where Request: Entryable {
         )
     }
     
-    public func build() -> Entry<Request.ResponseType> {
-        return .init(_build())
+    public func entry() -> Entry<Request> {
+        return .init(self)
     }
 }
 
 extension ClientBuilder where Request: DictionaryEntryable {
-    private func _build() -> Alamofire.DataRequest {
+    internal func build() -> Alamofire.DataRequest {
         return client.session.request(
             self.client.base.appendingPathComponent(self.request.entry),
             method: self.request.method,
@@ -62,13 +62,13 @@ extension ClientBuilder where Request: DictionaryEntryable {
         )
     }
     
-    public func build() -> Entry<Request.ResponseType> {
-        return .init(_build())
+    public func entry() -> Entry<Request> {
+        return .init(self)
     }
 }
 
 extension ClientBuilder where Request: EncodeEntryable {
-    private func _build() -> Alamofire.DataRequest {
+    internal func build() -> Alamofire.DataRequest {
         return client.session.request(
             self.client.base.appendingPathComponent(self.request.entry),
             method: self.request.method,
@@ -79,7 +79,7 @@ extension ClientBuilder where Request: EncodeEntryable {
         )
     }
     
-    public func build() -> Entry<Request.ResponseType> {
-        return .init(_build())
+    public func entry() -> Entry<Request> {
+        return .init(self)
     }
 }

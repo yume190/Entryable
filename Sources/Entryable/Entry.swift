@@ -4,14 +4,21 @@ import protocol Alamofire.DataPreprocessor
 import class Alamofire.DataResponseSerializer
 import struct Alamofire.HTTPMethod
 
-public struct Entry<ResponseType> {
+public struct Entry<Request: Entryable> {
+    public let builder: ClientBuilder<Request>
     public let request: Alamofire.DataRequest
     public var queue: DispatchQueue = .main
     public var dataPreprocessor: DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor
     public var emptyResponseCodes: Set<Int> = DataResponseSerializer.defaultEmptyResponseCodes
     public var emptyRequestMethods: Set<HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods
-    public init(_ request: Alamofire.DataRequest) {
-        self.request = request
+    
+    public init(_ builder: ClientBuilder<Request>) {
+        self.builder = builder
+        self.request = builder.build()
+    }
+    
+    public func reBuild() -> Entry<Request> {
+        .init(builder)
     }
     
     public func change(
@@ -19,8 +26,8 @@ public struct Entry<ResponseType> {
         dataPreprocessor: DataPreprocessor? = nil,
         emptyResponseCodes: Set<Int>? = nil,
         emptyRequestMethods: Set<HTTPMethod>? = nil
-    ) -> Entry<ResponseType> {
-        var copy = Entry<ResponseType>(self.request)
+    ) -> Entry<Request> {
+        var copy = Entry<Request>(self.builder)
         copy.queue = queue ?? self.queue
         copy.dataPreprocessor = dataPreprocessor ?? self.dataPreprocessor
         copy.emptyResponseCodes = emptyResponseCodes ?? self.emptyResponseCodes
@@ -65,19 +72,19 @@ extension Entry {
 }
 
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
-extension Entry where ResponseType: Codable {
-    public func fetchRawResponse(decoder: JSONDecoder = JSONDecoder()) async throws -> HTTPRawResponse<ResponseType> {
+extension Entry where Request.ResponseType: Codable {
+    public func fetchRawResponse(decoder: JSONDecoder = JSONDecoder()) async throws -> HTTPRawResponse<Request.ResponseType> {
         let raw = try await self.fetchRawResponseData()
         return try raw.mapData{ data in
                 do {
-                    return try ResponseType.decode(data: data, decoder: decoder)
+                    return try Request.ResponseType.decode(data: data, decoder: decoder)
                 } catch {
                     throw NetError.url(raw, error)
                 }
             }
     }
     
-    public func fetch(decoder: JSONDecoder = JSONDecoder()) async throws -> ResponseType {
+    public func fetch(decoder: JSONDecoder = JSONDecoder()) async throws -> Request.ResponseType {
         return try await self.fetchRawResponse(decoder: decoder).data
     }
 }

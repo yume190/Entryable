@@ -18,6 +18,10 @@ public class JSONMock: URLProtocol {
     public static func fake(url: String, fake: Fake) {
         self.fakes[url] = fake
     }
+    
+    public static func clean() {
+        self.fakes = [:]
+    }
 
     override public class func canInit(with request: URLRequest) -> Bool {
         return true
