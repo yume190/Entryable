@@ -33,12 +33,12 @@ extension Entry {
     }
 }
 
-extension Entry where Request.ResponseType: Codable {
-    public var rx: Single<HTTPRawResponse<Request.ResponseType>> {
-        return rxData.map { (raw) throws -> HTTPRawResponse<Request.ResponseType> in
+extension Entry where ResponseType: Codable {
+    public var rx: Single<HTTPRawResponse<ResponseType>> {
+        return rxData.map { (raw) throws -> HTTPRawResponse<ResponseType> in
             return try raw.mapData { data in
                 do {
-                    return try Request.ResponseType.decode(data: data)
+                    return try ResponseType.decode(data: data)
                 } catch {
                     throw NetError.url(raw, error)
                 }

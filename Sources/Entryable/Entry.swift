@@ -4,20 +4,30 @@ import protocol Alamofire.DataPreprocessor
 import class Alamofire.DataResponseSerializer
 import struct Alamofire.HTTPMethod
 
-public struct Entry<Request: Entryable> {
-    public let builder: ClientBuilder<Request>
+struct RequestBuilder {
+    let builder: () -> Alamofire.DataRequest
+    init (builder: @escaping () -> Alamofire.DataRequest) {
+        self.builder = builder
+    }
+    func build() -> Alamofire.DataRequest {
+        builder()
+    }
+}
+
+public struct Entry<ResponseType> {
+    let builder: RequestBuilder
     public let request: Alamofire.DataRequest
     public var queue: DispatchQueue = .main
     public var dataPreprocessor: DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor
     public var emptyResponseCodes: Set<Int> = DataResponseSerializer.defaultEmptyResponseCodes
     public var emptyRequestMethods: Set<HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods
     
-    public init(_ builder: ClientBuilder<Request>) {
+    init(_ builder: RequestBuilder) {
         self.builder = builder
         self.request = builder.build()
     }
     
-    public func reBuild() -> Entry<Request> {
+    public func reBuild() -> Entry<ResponseType> {
         .init(builder)
     }
     
@@ -26,8 +36,8 @@ public struct Entry<Request: Entryable> {
         dataPreprocessor: DataPreprocessor? = nil,
         emptyResponseCodes: Set<Int>? = nil,
         emptyRequestMethods: Set<HTTPMethod>? = nil
-    ) -> Entry<Request> {
-        var copy = Entry<Request>(self.builder)
+    ) -> Entry<ResponseType> {
+        var copy = Entry<ResponseType>(self.builder)
         copy.queue = queue ?? self.queue
         copy.dataPreprocessor = dataPreprocessor ?? self.dataPreprocessor
         copy.emptyResponseCodes = emptyResponseCodes ?? self.emptyResponseCodes
@@ -72,19 +82,19 @@ extension Entry {
 }
 
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
-extension Entry where Request.ResponseType: Codable {
-    public func fetchRawResponse(decoder: JSONDecoder = JSONDecoder()) async throws -> HTTPRawResponse<Request.ResponseType> {
+extension Entry where ResponseType: Codable {
+    public func fetchRawResponse(decoder: JSONDecoder = JSONDecoder()) async throws -> HTTPRawResponse<ResponseType> {
         let raw = try await self.fetchRawResponseData()
         return try raw.mapData{ data in
                 do {
-                    return try Request.ResponseType.decode(data: data, decoder: decoder)
+                    return try ResponseType.decode(data: data, decoder: decoder)
                 } catch {
                     throw NetError.url(raw, error)
                 }
             }
     }
     
-    public func fetch(decoder: JSONDecoder = JSONDecoder()) async throws -> Request.ResponseType {
+    public func fetch(decoder: JSONDecoder = JSONDecoder()) async throws -> ResponseType {
         return try await self.fetchRawResponse(decoder: decoder).data
     }
 }

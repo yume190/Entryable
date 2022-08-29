@@ -45,8 +45,10 @@ extension ClientBuilder where Request: Entryable {
         )
     }
     
-    public func entry() -> Entry<Request> {
-        return .init(self)
+    public func entry() -> Entry<Request.ResponseType> {
+        return .init(RequestBuilder {
+            self.build()
+        })
     }
 }
 
@@ -62,8 +64,10 @@ extension ClientBuilder where Request: DictionaryEntryable {
         )
     }
     
-    public func entry() -> Entry<Request> {
-        return .init(self)
+    public func entry() -> Entry<Request.ResponseType> {
+        return .init(RequestBuilder {
+            self.build()
+        })
     }
 }
 
@@ -79,7 +83,9 @@ extension ClientBuilder where Request: EncodeEntryable {
         )
     }
     
-    public func entry() -> Entry<Request> {
-        return .init(self)
+    public func entry() -> Entry<Request.ResponseType> {
+        return .init(RequestBuilder {
+            self.build()
+        })
     }
 }
