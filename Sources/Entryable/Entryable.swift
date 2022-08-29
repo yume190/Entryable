@@ -11,6 +11,7 @@ import struct Alamofire.HTTPHeaders
 import class Alamofire.Session
 import class Alamofire.DataRequest
 import protocol Alamofire.URLConvertible
+import protocol Alamofire.RequestInterceptor
 
 public protocol Entryable {
     associatedtype ResponseType
@@ -30,6 +31,8 @@ public protocol Entryable {
     var parameters: Parameters? { get }
 
     var parameterType: ParameterType { get }
+    
+    var interceptor: RequestInterceptor? { get }
 }
 
 extension Entryable {

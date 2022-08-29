@@ -40,7 +40,8 @@ extension ClientBuilder where Request: Entryable {
             method: self.request.method,
             parameters: nil,
             encoding: self.request.parameterType.encoding,
-            headers: HTTPHeaders(self.mergedHeaders)
+            headers: HTTPHeaders(self.mergedHeaders),
+            interceptor: self.request.interceptor
         )
     }
     
@@ -56,7 +57,8 @@ extension ClientBuilder where Request: DictionaryEntryable {
             method: self.request.method,
             parameters: self.request.parameters,
             encoding: self.request.parameterType.encoding,
-            headers: HTTPHeaders(self.mergedHeaders)
+            headers: HTTPHeaders(self.mergedHeaders),
+            interceptor: self.request.interceptor
         )
     }
     
@@ -72,7 +74,8 @@ extension ClientBuilder where Request: EncodeEntryable {
             method: self.request.method,
             parameters: self.request.parameters,
             encoder: self.request.parameterType.encoder,
-            headers: HTTPHeaders(self.mergedHeaders)
+            headers: HTTPHeaders(self.mergedHeaders),
+            interceptor: self.request.interceptor
         )
     }
     
